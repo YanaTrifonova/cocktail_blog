@@ -15,7 +15,7 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
 
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/static/stylesheet/main.css">
 </head>
 <body>
 
@@ -28,13 +28,7 @@
 
     <p class="post__description">Header must be less than 255 characters in length.</p>
 
-    <div id="note" class="click2edit post__paragraph"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Elit ullamcorper dignissim cras tincidunt lobortis. Aliquam
-        faucibus purus in massa tempor nec feugiat nisl pretium. At consectetur lorem donec massa sapien faucibus.
-        Pulvinar mattis nunc sed blandit libero. Dolor sed viverra ipsum nunc aliquet bibendum enim facilisis. Euismod
-        nisi porta lorem mollis aliquam ut porttitor leo. Nullam vehicula ipsum a arcu cursus vitae congue. Aliquam
-        vestibulum morbi blandit cursus risus. Sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar.</p>
+    <div id="note" class="click2edit post__paragraph">
     </div>
 
     <script>
@@ -71,10 +65,10 @@
 
 <script>
     function saveForm(){
-        var data =
+        var dataOut =
         {
             title: $('#header').val(),
-            body: $('#note').innerHTML,
+            body: "abc",//$('#note').innerHTML,
             is_cocktail: $('#isCocktail').is(":checked"),
             user_id: 1,
             tags: $('#tags').val().split(", "),
@@ -84,8 +78,8 @@
         $.ajax({
             url: '/articles',
             type: 'PUT',
-            data: JSON.stringify(data),
-            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(dataOut),
             success: function () {
                 alert('Load was performed.');
             },

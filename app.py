@@ -1,7 +1,8 @@
 import logging
 import sys
+import json
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 
 from orm.orm import get_articles, get_tags, write_article_with_tags, get_top_tags
 
@@ -16,6 +17,14 @@ stream_handler = logging.StreamHandler(sys.stdout)
 stream_handler.setFormatter(formatter)
 logger.addHandler(stream_handler)
 
+
+@app.route('/')
+def static_page():
+    return render_template('index.html')
+
+@app.route('/post')
+def post_page():
+    return render_template('post.html')
 
 @app.route('/articles', methods=['PUT'])
 def save_articles():

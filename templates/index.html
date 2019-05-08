@@ -16,7 +16,7 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
 
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/static/stylesheet/main.css">
 </head>
 <body>
 <div class="nav">
@@ -28,7 +28,7 @@
         </div>
 
         <div class="nav__details__logo">
-            <img src="img/cock_transperent.png" class="nav__details__logo-pic"
+            <img src="/static/img/cock_transperent.png" class="nav__details__logo-pic"
                  alt="logo picture with cock who drinks cocktail">
         </div>
 
@@ -40,7 +40,7 @@
         </div>
 
         <div class="nav__details__search">
-            <form action="/action_page.php" class="nav__details__search-form">
+            <form class="nav__details__search-form">
                 <input class="nav__details__search-box" type="text" id="mySearch" name="q"
                        placeholder="Search the site...">
                 <button class="nav__details__search-btn" type="submit"><i class="fa fa-search"></i></button>
@@ -103,20 +103,22 @@
                 let articles = data["articles"];
                 $(articles).each(function () {
                     let id = this.id;
-                    let idSelector = $('#{id}');
+
                     let title = this.title;
                     let creationTime = this.creation_time;
                     let body = this.body;
-                    let tagsSelector = $(".article__container__tags");
+
                     let ingredients = this.ingredients;
                     let tags = this.tags;
-                    $(".post").append("<div id={id} class='article__container'></div>");
-                    idSelector.append("<h2 class='article__container__header'>{title}</h2>");
-                    idSelector.append("<p class='article__container__creationTime'>{creationTime}</p>");
-                    idSelector.append("<p class='article__container__body'>{body}</p>");
-                    idSelector.append("<ul class='article__container__tags'></ul>");
-                    tagsSelector.append("<li class='article__container__tags__elem'>{ingredients}</li>");
-                    tagsSelector.append("<li class='article__container__tags__elem'>{tags}</li>");
+                    $(".article").append(`<div id=${id} class='article__container'></div>`);
+                    let idSelector = $('#' + id);
+                    idSelector.append(`<h2 class='article__container__header'>${title}</h2>`);
+                    idSelector.append(`<p class='article__container__creationTime'>${creationTime}</p>`);
+                    idSelector.append(`<p class='article__container__body'>${body}</p>`);
+                    idSelector.append(`<ul class='article__container__tags'></ul>`);
+                    let tagsSelector = $(".article__container__tags");
+                    tagsSelector.append(`<li class='article__container__tags__elem'>${ingredients}</li>`);
+                    tagsSelector.append(`<li class='article__container__tags__elem'>${tags}</li>`);
                 })
             },
             error: function () {
