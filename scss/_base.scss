@@ -1,0 +1,30 @@
+@import "variables";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-family: 'Exo', sans-serif;
+
+}
+
+html {
+  font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+
+}
+
+body {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  cursor: inherit;
+}
+
+i::before {
+  font: normal normal normal 14px/1 FontAwesome !important;
+  font-size: inherit !important;
+}

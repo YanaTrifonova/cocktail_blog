@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cocktail Blog</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Exo:400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- include libraries(jQuery, bootstrap) -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+
+    <!-- include summernote css/js -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div class="nav">
+
+    <div class="nav__details">
+
+        <div class="nav__details__header">
+            <h1 class="nav__details__header-text">Cocktail Blog</h1>
+        </div>
+
+        <div class="nav__details__logo">
+            <img src="img/cock_transperent.png" class="nav__details__logo-pic"
+                 alt="logo picture with cock who drinks cocktail">
+        </div>
+
+        <div class="nav__details__btn">
+            <a href="#" class="nav__details__btn-ingr nav__details__btn-decor">Ingredients</a>
+            <a href="#" class="nav__details__btn-list nav__details__btn-decor">List</a>
+            <a href="#" class="nav__details__btn-about nav__details__btn-decor">About</a>
+            <a href="#" class="nav__details__btn-cont nav__details__btn-decor">Contact Us</a>
+        </div>
+
+        <div class="nav__details__search">
+            <form action="/action_page.php" class="nav__details__search-form">
+                <input class="nav__details__search-box" type="text" id="mySearch" name="q"
+                       placeholder="Search the site...">
+                <button class="nav__details__search-btn" type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="tags">
+
+    <div class="tags__primary">
+        <h2 class="tags__primary-text">All that you want to know about cocktails</h2>
+    </div>
+
+    <div class="tags__list">
+        <ul class="tags__list__box">
+            <li class="tags__list__box-1"><a class="tags__list__box-decor" href="#">#vodka</a></li>
+            <li class="tags__list__box-2"><a class="tags__list__box-decor" href="#">#rum</a></li>
+            <li class="tags__list__box-3"><a class="tags__list__box-decor" href="#">#martini</a></li>
+            <li class="tags__list__box-4"><a class="tags__list__box-decor" href="#">#sweet</a></li>
+            <li class="tags__list__box-5"><a class="tags__list__box-decor" href="#">#sour</a></li>
+            <li class="tags__list__box-6"><a class="tags__list__box-decor" href="#">#whisky</a></li>
+            <li class="tags__list__box-7"><a class="tags__list__box-decor" href="#">#red</a></li>
+            <li class="tags__list__box-8"><a class="tags__list__box-decor" href="#">#sex on the beach</a></li>
+            <li class="tags__list__box-9"><a class="tags__list__box-decor" href="#">#lime</a></li>
+            <li class="tags__list__box-10"><a class="tags__list__box-decor" href="#">#mint</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="article">
+
+</div>
+
+<!--<div id="summernote" class="click2edit"><p>Hello Summernote</p></div>-->
+<!--<button id="edit" class="btn btn-primary" onclick="edit()" type="button">Edit</button>-->
+<!--<button id="save" class="btn btn-primary" onclick="save()" type="button">Save</button>-->
+<!--<script>-->
+<!--    $(document).ready(function () {-->
+<!--        $('#summernote').summernote();-->
+<!--    });-->
+<!--    var edit = function () {-->
+<!--        $('.click2edit').summernote({focus: true});-->
+<!--    };-->
+
+<!--    var save = function () {-->
+<!--        var markup = $('.click2edit').summernote('code');-->
+<!--        $('.click2edit').summernote('destroy');-->
+<!--    };-->
+<!--</script>-->
+
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: '/articles',
+            type: 'GET',
+            dataType: "json",
+            success: function (data) {
+                let articles = data["articles"];
+                $(articles).each(function () {
+                    let id = this.id;
+                    let idSelector = $('#{id}');
+                    let title = this.title;
+                    let creationTime = this.creation_time;
+                    let body = this.body;
+                    let tagsSelector = $(".article__container__tags");
+                    let ingredients = this.ingredients;
+                    let tags = this.tags;
+                    $(".post").append("<div id={id} class='article__container'></div>");
+                    idSelector.append("<h2 class='article__container__header'>{title}</h2>");
+                    idSelector.append("<p class='article__container__creationTime'>{creationTime}</p>");
+                    idSelector.append("<p class='article__container__body'>{body}</p>");
+                    idSelector.append("<ul class='article__container__tags'></ul>");
+                    tagsSelector.append("<li class='article__container__tags__elem'>{ingredients}</li>");
+                    tagsSelector.append("<li class='article__container__tags__elem'>{tags}</li>");
+                })
+            },
+            error: function () {
+                alert('ERROR');
+            }
+        })
+    });
+
+</script>
+
+
+</body>
+</html>

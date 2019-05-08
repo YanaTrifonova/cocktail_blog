@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog post</title>
+    <link href="https://fonts.googleapis.com/css?family=Exo:400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- include libraries(jQuery, bootstrap) -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+
+    <!-- include summernote css/js -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<div class="post">
+
+    <div class="post__header">
+        <label for="header" class="post__label">Write a header of the post</label>
+        <textarea type="text" name="header" id="header" class="post__header-input" required maxlength="255" placeholder="HEADER" cols="10" rows="2"></textarea>
+    </div>
+
+    <p class="post__description">Header must be less than 255 characters in length.</p>
+
+    <div id="note" class="click2edit post__paragraph"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Elit ullamcorper dignissim cras tincidunt lobortis. Aliquam
+        faucibus purus in massa tempor nec feugiat nisl pretium. At consectetur lorem donec massa sapien faucibus.
+        Pulvinar mattis nunc sed blandit libero. Dolor sed viverra ipsum nunc aliquet bibendum enim facilisis. Euismod
+        nisi porta lorem mollis aliquam ut porttitor leo. Nullam vehicula ipsum a arcu cursus vitae congue. Aliquam
+        vestibulum morbi blandit cursus risus. Sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar.</p>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#note').summernote();
+        });
+    </script>
+
+    <div class="post__checkbox">
+        <input type="checkbox" name="isCocktail" value="isCocktail" id="isCocktail">
+        <label class="post__checkbox-decor" for="isCocktail">Is cocktail?</label>
+        <p class="post__checkbox-desc">Choose if this post is about cocktail</p>
+    </div>
+
+    <div class="post__container">
+        <label for="tags" class="post__label">Write tags for the post</label>
+        <textarea type="text" name="tags" id="tags" class="post__container-input" placeholder="Tags"></textarea>
+    </div>
+
+    <p class="post__description">It's possible to write more than one tag. It should be separated by comma from each other</p>
+
+    <div class="post__container">
+        <label for="tags" class="post__label">Write ingredients for a cocktail</label>
+        <textarea type="text" name="ingr" id="ingr" class="post__container-input" placeholder="Ingredients"></textarea>
+    </div>
+
+    <p class="post__description">It's possible to write more than one ingredient. It should be separated by comma from each other</p>
+
+    <div class="post__button">
+        <a id="save" class="post__button-decor" onclick="saveForm()" type="button">Submit</a>
+    </div>
+
+</div>
+
+<script>
+    function saveForm(){
+        var data =
+        {
+            title: $('#header').val(),
+            body: $('#note').innerHTML,
+            is_cocktail: $('#isCocktail').is(":checked"),
+            user_id: 1,
+            tags: $('#tags').val().split(", "),
+            ingredients: $('#ingr').val().split(", "),
+        };
+
+        $.ajax({
+            url: '/articles',
+            type: 'PUT',
+            data: JSON.stringify(data),
+            dataType: "json",
+            success: function () {
+                alert('Load was performed.');
+            },
+            error: function () {
+                alert('ERROR');
+            }
+        });
+    }
+
+</script>
+
+
+</body>
+</html>

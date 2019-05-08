@@ -1,0 +1,92 @@
+.post {
+  display: block;
+  width: 66.6%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding: 5rem;
+  background-color: $color1;
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+
+    &-input {
+      width: 100%;
+      font-size: 3.5rem;
+      padding: 1rem;
+      border: none;
+      border-radius: 1rem;
+    }
+  }
+
+  &__checkbox {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border: .2rem solid $color2;
+
+    &-decor {
+      padding-left: .5rem;
+    }
+  }
+
+  &__container {
+    padding-top: 2rem;
+
+    &-input {
+      width: 100%;
+      border-radius: 1rem;
+      padding: .5rem;
+      border: none;
+      font-size: 1.7rem;
+    }
+  }
+
+  &__button {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10rem;
+    margin-bottom: 0;
+    padding: 2rem;
+    width: 20rem;
+    border-radius: 6rem;
+    border: .4rem solid $color2;
+    font-size: 2rem;
+    background-color: $color5;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $color2;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    &-decor {
+      color: $color2;
+      text-transform: uppercase;
+      margin: 0 auto;
+      font-weight: bold;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: $color2;
+      }
+    }
+  }
+
+  &__description {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  &__label {
+    font-size: 2.3rem;
+  }
+}
