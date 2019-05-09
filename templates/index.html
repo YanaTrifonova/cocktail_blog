@@ -16,7 +16,7 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
 
-    <link rel="stylesheet" href="/static/stylesheet/main.css">
+    <link rel="stylesheet" href="../static/stylesheet/main.css">
 </head>
 <body>
 <div class="nav">
@@ -72,26 +72,7 @@
 
 </div>
 
-<div class="article">
-
-</div>
-
-<!--<div id="summernote" class="click2edit"><p>Hello Summernote</p></div>-->
-<!--<button id="edit" class="btn btn-primary" onclick="edit()" type="button">Edit</button>-->
-<!--<button id="save" class="btn btn-primary" onclick="save()" type="button">Save</button>-->
-<!--<script>-->
-<!--    $(document).ready(function () {-->
-<!--        $('#summernote').summernote();-->
-<!--    });-->
-<!--    var edit = function () {-->
-<!--        $('.click2edit').summernote({focus: true});-->
-<!--    };-->
-
-<!--    var save = function () {-->
-<!--        var markup = $('.click2edit').summernote('code');-->
-<!--        $('.click2edit').summernote('destroy');-->
-<!--    };-->
-<!--</script>-->
+<div class="article"></div>
 
 <script>
     $(document).ready(function () {
@@ -101,22 +82,24 @@
             dataType: "json",
             success: function (data) {
                 let articles = data["articles"];
+
                 $(articles).each(function () {
                     let id = this.id;
-
                     let title = this.title;
                     let creationTime = this.creation_time;
                     let body = this.body;
-
                     let ingredients = this.ingredients;
                     let tags = this.tags;
+
                     $(".article").append(`<div id=${id} class='article__container'></div>`);
+
                     let idSelector = $('#' + id);
                     idSelector.append(`<h2 class='article__container__header'>${title}</h2>`);
                     idSelector.append(`<p class='article__container__creationTime'>${creationTime}</p>`);
                     idSelector.append(`<p class='article__container__body'>${body}</p>`);
                     idSelector.append(`<ul class='article__container__tags'></ul>`);
-                    let tagsSelector = $(".article__container__tags");
+
+                    let tagsSelector = $('#' + id +`>.article__container__tags`);
                     tagsSelector.append(`<li class='article__container__tags__elem'>${ingredients}</li>`);
                     tagsSelector.append(`<li class='article__container__tags__elem'>${tags}</li>`);
                 })
