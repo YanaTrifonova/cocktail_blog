@@ -15,27 +15,42 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
 
-    <link rel="stylesheet" href="/static/stylesheet/main.css">
+    <link rel="stylesheet" href="../static/stylesheet/main.css">
 </head>
 <body>
 
 <div class="post">
 
+    <!--HEADER-->
+
     <div class="post__header">
         <label for="header" class="post__label">Write a header of the post</label>
-        <textarea type="text" name="header" id="header" class="post__header-input" required maxlength="255" placeholder="HEADER" cols="10" rows="2"></textarea>
+        <textarea name="header" id="header" class="post__header-input" required maxlength="255" placeholder="HEADER" cols="10" rows="2"></textarea>
     </div>
 
     <p class="post__description">Header must be less than 255 characters in length.</p>
 
-    <div id="note" class="click2edit post__paragraph">
-    </div>
+    <!--POST-->
+
+    <div id="note" class="click2edit post__paragraph"></div>
+    <button id="edit" class="btn btn-primary" onclick="edit()" type="button">Edit</button>
+    <button id="save" class="btn btn-primary" onclick="save()" type="button">Save</button>
 
     <script>
         $(document).ready(function () {
             $('#note').summernote();
         });
+        var edit = function () {
+            $('.click2edit').summernote({focus: true});
+        };
+
+        var save = function () {
+            var markup = $('.click2edit').summernote('code');
+            $('.click2edit').summernote('destroy');
+        };
     </script>
+
+    <!--CHECBOX ISCOCKTAIL?-->
 
     <div class="post__checkbox">
         <input type="checkbox" name="isCocktail" value="isCocktail" id="isCocktail">
@@ -43,22 +58,28 @@
         <p class="post__checkbox-desc">Choose if this post is about cocktail</p>
     </div>
 
+    <!--TAGS-->
+
     <div class="post__container">
         <label for="tags" class="post__label">Write tags for the post</label>
-        <textarea type="text" name="tags" id="tags" class="post__container-input" placeholder="Tags"></textarea>
+        <textarea name="tags" id="tags" class="post__container-input" placeholder="Tags"></textarea>
     </div>
 
     <p class="post__description">It's possible to write more than one tag. It should be separated by comma from each other</p>
 
+    <!--INGREDIENTS-->
+
     <div class="post__container">
         <label for="tags" class="post__label">Write ingredients for a cocktail</label>
-        <textarea type="text" name="ingr" id="ingr" class="post__container-input" placeholder="Ingredients"></textarea>
+        <textarea name="ingr" id="ingr" class="post__container-input" placeholder="Ingredients"></textarea>
     </div>
 
     <p class="post__description">It's possible to write more than one ingredient. It should be separated by comma from each other</p>
 
+    <!--BUTTON TO SUBMIT POST-->
+
     <div class="post__button">
-        <a id="save" class="post__button-decor" onclick="saveForm()" type="button">Submit</a>
+        <a class="post__button-decor" onclick="saveForm()" type="button">Submit</a>
     </div>
 
 </div>
@@ -68,7 +89,8 @@
         var dataOut =
         {
             title: $('#header').val(),
-            body: "abc",//$('#note').innerHTML,
+            // body: $('#note').innerHTML,
+            body: $("#note").text(),
             is_cocktail: $('#isCocktail').is(":checked"),
             user_id: 1,
             tags: $('#tags').val().split(", "),
