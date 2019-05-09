@@ -26,6 +26,10 @@ def static_page():
 def post_page():
     return render_template('post.html')
 
+@app.route('/ingredients')
+def post_ingredients():
+    return render_template('Ingredients.html')
+
 @app.route('/articles', methods=['PUT'])
 def save_articles():
     body = request.get_json()
