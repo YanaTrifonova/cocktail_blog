@@ -25,10 +25,11 @@
 
     <div class="post__header">
         <label for="header" class="post__label">Write a header of the post</label>
-        <textarea name="header" id="header" class="post__header-input" required maxlength="255" placeholder="HEADER" cols="10" rows="2"></textarea>
+        <textarea name="header" id="header" class="post__header-input" required maxlength="255" placeholder="HEADER"
+                  cols="10" rows="2"></textarea>
     </div>
 
-    <p class="post__description">Header must be less than 255 characters in length.</p>
+    <p class="post__description">Header must be less than 255 characters in length</p>
 
     <!--POST-->
 
@@ -65,7 +66,8 @@
         <textarea name="tags" id="tags" class="post__container-input" placeholder="Tags"></textarea>
     </div>
 
-    <p class="post__description">It's possible to write more than one tag. It should be separated by comma from each other</p>
+    <p class="post__description">It's possible to write more than one tag. It should be separated by comma from each
+        other</p>
 
     <!--INGREDIENTS-->
 
@@ -74,7 +76,8 @@
         <textarea name="ingr" id="ingr" class="post__container-input" placeholder="Ingredients"></textarea>
     </div>
 
-    <p class="post__description">It's possible to write more than one ingredient. It should be separated by comma from each other</p>
+    <p class="post__description">It's possible to write more than one ingredient. It should be separated by comma from
+        each other</p>
 
     <!--BUTTON TO SUBMIT POST-->
 
@@ -85,17 +88,17 @@
 </div>
 
 <script>
-    function saveForm(){
+    function saveForm() {
         var dataOut =
-        {
-            title: $('#header').val(),
-            // body: $('#note').innerHTML,
-            body: $("#note").text(),
-            is_cocktail: $('#isCocktail').is(":checked"),
-            user_id: 1,
-            tags: $('#tags').val().split(", "),
-            ingredients: $('#ingr').val().split(", "),
-        };
+            {
+                title: $('#header').val(),
+                // body: $('#note').innerHTML,
+                body: $("#note").summernote('code'),
+                is_cocktail: $('#isCocktail').is(":checked"),
+                user_id: 1,
+                tags: $('#tags').val().split(", "),
+                ingredients: $('#ingr').val().split(", "),
+            };
 
         $.ajax({
             url: '/articles',

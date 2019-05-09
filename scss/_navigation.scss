@@ -1,17 +1,12 @@
 .nav {
-  display: flex;
-  padding-left: 4rem;
-  padding-right: 4rem;
 
   &__details {
-    background-color: $color2;
     grid-column: 2 / 3 ;
     grid-row: 1 / 2 ;
-    grid-column-gap: 5rem;
-
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: minmax(max-content, 1fr) max-content minmax(max-content, 3fr) minmax(max-content, 1fr);
+    grid-template-columns: 1fr 70rem 1fr;
+    grid-column-gap: 4rem;
 
     &__header {
       grid-column: 1 / 2 ;
@@ -19,34 +14,18 @@
 
       display:flex;
       align-items: center;
-      justify-content: center;
-
       padding-left: 2.3rem;
 
       &-text {
         color: $color3;
         font-size: $font-large;
-        margin: 0;
+        margin: 0 0 0 auto;
         padding: 0;
       }
     }
 
-    &__logo {
-      grid-column: 2 / 3 ;
-      grid-row: 1 / 2 ;
-
-      display:flex;
-      align-items: center;
-      justify-content: center;
-
-      &-pic {
-        width: 9.2rem;
-        height: 9.2rem;
-      }
-    }
-
     &__btn {
-      grid-column: 3 / 4 ;
+      grid-column: 2 / 3;
       grid-row: 1 / 2 ;
 
       display: grid;
@@ -66,9 +45,8 @@
         border: none;
 
         &:hover{
-          background-color: $color1;
           padding-bottom: 3.3rem;
-          border-bottom: .3rem solid $color4;
+          border-bottom: .3rem solid $color7;
           text-decoration: none;
         }
 
@@ -102,7 +80,7 @@
     }
 
     &__search {
-      grid-column: 4 / 5 ;
+      grid-column: 3 / 4 ;
       grid-row: 1 / 2 ;
 
       margin: auto 0;
@@ -118,12 +96,19 @@
 
       &-box {
         height: 2.3rem;
-        border: none;
+        border-top: 1px solid $color2;
+        border-bottom: 1px solid $color2;
+        border-left: 1px solid $color2;
+        border-right: none;
+
         text-decoration: none;
+        line-height: unset;
 
         padding-left: .5rem;
         font-size: $font-xsmall;
         color: $color3;
+
+        width: 18.735rem;
 
         font-family: 'Exo', sans-serif;
 
@@ -134,10 +119,21 @@
 
       &-btn {
         text-decoration: none;
-        border: none;
         height: 2.3rem;
         width: 2.3rem;
+        border: 1px solid $color2;
       }
+    }
+  }
+
+  &__logo {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    &-pic {
+      width: 20%;
+      height: 20%;
     }
   }
 }

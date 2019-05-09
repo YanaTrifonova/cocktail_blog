@@ -1,8 +1,8 @@
 .tags {
   display: grid;
   grid-template-columns: 1fr 70rem 1fr;
-  grid-template-rows: minmax(max-content, 1fr) minmax(max-content, 2fr);
-  grid-column-gap: 2rem;
+  grid-template-rows: minmax(max-content, 1fr) max-content;
+  grid-column-gap: 4rem;
 
   &__primary {
     grid-column: 2 / 3 ;
@@ -29,6 +29,7 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
+      margin-bottom: 3rem;
 
       &-decor {                     /*li*/
         display: flex;
@@ -37,13 +38,13 @@
         border-radius: 6rem;
         margin: .3rem;
         background-color: $color1;
-        color: $color5 !important;
+        color: $color5;
 
         &:hover {
           text-decoration: underline;
           cursor: pointer;
           transform: translateY(-.2rem);
-          color: $color5 !important;
+          color: $color6;
         }
       }
     }

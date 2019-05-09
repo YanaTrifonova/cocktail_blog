@@ -27,11 +27,6 @@
             <h1 class="nav__details__header-text">Cocktail Blog</h1>
         </div>
 
-        <div class="nav__details__logo">
-            <img src="/static/img/cock_transperent.png" class="nav__details__logo-pic"
-                 alt="logo picture with cock who drinks cocktail">
-        </div>
-
         <div class="nav__details__btn">
             <a href="#" class="nav__details__btn-ingr nav__details__btn-decor">Ingredients</a>
             <a href="#" class="nav__details__btn-list nav__details__btn-decor">List</a>
@@ -46,6 +41,11 @@
                 <button class="nav__details__search-btn" type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
+    </div>
+
+    <div class="nav__logo">
+        <img src="/static/img/logo-small.svg" class="nav__logo-pic"
+             alt="logo picture with cock who drinks cocktail">
     </div>
 </div>
 
@@ -96,12 +96,16 @@
                     let idSelector = $('#' + id);
                     idSelector.append(`<h2 class='article__container__header'>${title}</h2>`);
                     idSelector.append(`<p class='article__container__creationTime'>${creationTime}</p>`);
-                    idSelector.append(`<p class='article__container__body'>${body}</p>`);
-                    idSelector.append(`<ul class='article__container__tags'></ul>`);
+                    idSelector.append(`<div class='article__container__body'>${body}</div>`);
+                    idSelector.append(`<ul class='article__container__tags'>Tags:</ul>`);
 
-                    let tagsSelector = $('#' + id +`>.article__container__tags`);
-                    tagsSelector.append(`<li class='article__container__tags__elem'>${ingredients}</li>`);
-                    tagsSelector.append(`<li class='article__container__tags__elem'>${tags}</li>`);
+                    let tagsSelector = $('#' + id + `>.article__container__tags`);
+                    ingredients.forEach(function (ingredient) {
+                        tagsSelector.append(`<li class='article__container__tags__elem'>${ingredient}</li>`);
+                    });
+                    tags.forEach(function (tag) {
+                        tagsSelector.append(`<li class='article__container__tags__elem'>${tag}</li>`);
+                    });
                 })
             },
             error: function () {
@@ -111,7 +115,5 @@
     });
 
 </script>
-
-
 </body>
 </html>
