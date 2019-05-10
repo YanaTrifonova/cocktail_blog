@@ -234,6 +234,7 @@ i::before {
   margin: .3rem;
   background-color: #dcdcdd;
   color: #1985a1;
+  border: 0.1rem solid #c5c3c6;
 }
 
 .tags__list__box-decor:hover {
@@ -304,6 +305,7 @@ i::before {
   margin: .3rem;
   background-color: #dcdcdd;
   color: #1985a1;
+  border: 0.1rem solid #c5c3c6;
 }
 
 .article__container__tags__elem:hover {
@@ -312,6 +314,48 @@ i::before {
   -webkit-transform: translateY(-0.2rem);
           transform: translateY(-0.2rem);
   color: #eb454b;
+}
+
+.paginations {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  padding: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.paginations__btn {
+  width: 15rem;
+  font-size: 2.3rem;
+  background-color: #eb454b;
+  color: #c5c3c6;
+  padding: 1.3rem 2.3rem;
+  margin: 0 1.3rem 6rem;
+  border-radius: 10rem;
+  text-align: center;
+  cursor: pointer;
+  border: 0.4rem solid #c5c3c6;
+}
+
+.paginations__btn:hover, .paginations__btn:focus, .paginations__btn:active {
+  text-decoration: underline;
+  color: #c5c3c6;
+}
+
+.paginations__hidden {
+  background-color: #dcdcdd;
+  border: 0.4rem solid #c5c3c6;
+  padding: 1.1rem 2.1rem;
+  color: #c5c3c6;
+}
+
+.paginations__hidden:hover {
+  color: #c5c3c6;
+  text-decoration: none;
+  cursor: default;
 }
 
 .post {

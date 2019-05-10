@@ -74,10 +74,19 @@
 
 <div class="article"></div>
 
+<div class="paginations">
+    <a href="#" class="paginations__btn" id="prev" onclick="previousPage()">previous</a>
+    <a href="#" class="paginations__btn" id="next" onclick="nextPage()">next</a>
+</div>
+
 <script>
     $(document).ready(function () {
+        let url = new URL(window.location);
+        let query_string = url.search;
+        let search_params = new URLSearchParams(query_string);
+        let search_str = search_params.toString();
         $.ajax({
-            url: '/articles',
+            url: '/articles' + ((search_str.length === 0)?"":("?" + search_str)),
             type: 'GET',
             dataType: "json",
             success: function (data) {
@@ -111,9 +120,42 @@
             error: function () {
                 alert('ERROR');
             }
-        })
+        });
+
+        if (query_string ==="" ||  query_string ==="?offset=0") {
+            let hidden = document.getElementById("prev");
+            hidden.className += " paginations__hidden";
+        }
     });
 
 </script>
+
+<script>
+
+    function previousPage() {
+        let url = new URL(window.location);
+        let query_string = url.search;
+        let search_params = new URLSearchParams(query_string);
+        if (search_params.has("offset")) {
+            search_params.set('offset', parseInt(search_params.get('offset')) - 5);
+        }
+        window.location.href =  '?' + search_params.toString();
+    }
+
+    function nextPage() {
+        let url = new URL(window.location);
+        let query_string = url.search;
+        let search_params = new URLSearchParams(query_string);
+        if (search_params.has("offset")) {
+            search_params.set('offset', parseInt(search_params.get('offset')) + 5);
+        }
+        else {
+            search_params.set("offset", '5');
+        }
+        window.location.href =  '?' + search_params.toString();
+    }
+
+</script>
+
 </body>
 </html>
