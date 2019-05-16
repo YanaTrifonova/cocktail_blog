@@ -268,6 +268,11 @@ i::before {
   margin-top: 0;
 }
 
+.article__container__header:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .article__container__creationTime {
   font-size: 1rem;
   margin-bottom: 4rem;

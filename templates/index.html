@@ -85,8 +85,18 @@
         let query_string = url.search;
         let search_params = new URLSearchParams(query_string);
         let search_str = search_params.toString();
+
+        let head = window.location.pathname;
+
+        let ajaxURL = '/articles';
+        if (window.location.pathname !== '/') {
+            ajaxURL += head;
+        } else if (search_str.length !== 0) {
+                ajaxURL += "?" + search_str;
+        }
+
         $.ajax({
-            url: '/articles' + ((search_str.length === 0) ? "" : ("?" + search_str)),
+            url: ajaxURL,
             type: 'GET',
             dataType: "json",
             success: function (data) {
@@ -103,7 +113,7 @@
                     $(".article").append(`<div id=${id} class='article__container'></div>`);
 
                     let idSelector = $('#' + id);
-                    idSelector.append(`<h2 class='article__container__header'>${title}</h2>`);
+                    idSelector.append(`<h2 class='article__container__header' onclick="articleDisplay('${id}')">${title}</h2>`);
                     idSelector.append(`<p class='article__container__creationTime'>${creationTime}</p>`);
                     idSelector.append(`<div class='article__container__body'>${body}</div>`);
                     idSelector.append(`<ul class='article__container__tags'>Tags:</ul>`);
@@ -117,6 +127,10 @@
                     });
                 })
             },
+            /*statusCode: {
+                404: function() {
+                    alert( "page not found" );
+                }*/
             error: function () {
                 alert('ERROR');
             }
@@ -165,7 +179,24 @@
         if (search_params.has("offset")) {
             search_params.set("offset", '0');
         }
+        if (query_string === "" || query_string === "?offset=0") {
+            let hidden = document.getElementById("prev");
+            hidden.className += " paginations__hidden";
+        }
         window.location.href = '?' + search_params.toString();
+    }
+
+</script>
+
+<script>
+    function articleDisplay(idToDisplay) {
+        window.location.href = '/' + idToDisplay;
+
+        let hiddenPrev = document.getElementById("prev");
+        hiddenPrev.className += " paginations__hidden";
+
+        let hiddenNext = document.getElementById("next");
+        hiddenNext.className += " paginations__hidden";
     }
 
 </script>

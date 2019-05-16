@@ -18,6 +18,11 @@
       color: $color6;
       margin-bottom: 2rem;
       margin-top: 0;
+
+      &:hover{
+        text-decoration: underline;
+        cursor: pointer;
+      }
     }
 
     &__creationTime {
