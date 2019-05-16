@@ -56,18 +56,7 @@
     </div>
 
     <div class="tags__list">
-        <ul class="tags__list__box">
-            <li class="tags__list__box-1"><a class="tags__list__box-decor" href="#">#vodka</a></li>
-            <li class="tags__list__box-2"><a class="tags__list__box-decor" href="#">#rum</a></li>
-            <li class="tags__list__box-3"><a class="tags__list__box-decor" href="#">#martini</a></li>
-            <li class="tags__list__box-4"><a class="tags__list__box-decor" href="#">#sweet</a></li>
-            <li class="tags__list__box-5"><a class="tags__list__box-decor" href="#">#sour</a></li>
-            <li class="tags__list__box-6"><a class="tags__list__box-decor" href="#">#whisky</a></li>
-            <li class="tags__list__box-7"><a class="tags__list__box-decor" href="#">#red</a></li>
-            <li class="tags__list__box-8"><a class="tags__list__box-decor" href="#">#sex on the beach</a></li>
-            <li class="tags__list__box-9"><a class="tags__list__box-decor" href="#">#lime</a></li>
-            <li class="tags__list__box-10"><a class="tags__list__box-decor" href="#">#mint</a></li>
-        </ul>
+        <ul class="tags__list__box" id="tags__list__box"></ul>
     </div>
 
 </div>
@@ -80,17 +69,53 @@
 </div>
 
 <script>
+    let url = new URL(window.location);
+    let query_string = url.search;
+    let search_params = new URLSearchParams(query_string);
+    let search_str = search_params.toString();
+
+    let path = window.location.pathname;
+
+    let topTagsURL = '/tags/top';
+    if (window.location.pathname !== '/') {
+        topTagsURL += path;
+    } else if (search_str.length !== 0) {
+        topTagsURL += "?" + search_str;
+    }
+
+    $.ajax({
+        url: topTagsURL,
+        type: 'GET',
+        dataType: "json",
+        success: function (data) {
+            let topTags = data["tags"];
+            console.log("OK");
+            $(topTags).each(function () {
+                let topTag = this.name;
+                let tagsBox = $(document.getElementById("tags__list__box"));
+                tagsBox.append(`<li class="tags__list__box-decor">${topTag}</li>`);
+            })
+        },
+        error: function () {
+            alert('ERROR');
+        }
+    })
+
+</script>
+
+
+<script>
     $(document).ready(function () {
         let url = new URL(window.location);
         let query_string = url.search;
         let search_params = new URLSearchParams(query_string);
         let search_str = search_params.toString();
 
-        let head = window.location.pathname;
+        let path = window.location.pathname;
 
         let ajaxURL = '/articles';
         if (window.location.pathname !== '/') {
-            ajaxURL += head;
+            ajaxURL += path;
         } else if (search_str.length !== 0) {
             ajaxURL += "?" + search_str;
         }
