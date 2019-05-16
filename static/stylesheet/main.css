@@ -55,6 +55,11 @@ i::before {
   padding: 0;
 }
 
+.nav__details__header-link:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .nav__details__btn {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
@@ -170,6 +175,10 @@ i::before {
 .nav__logo-pic {
   width: 20%;
   height: 20%;
+}
+
+.nav__logo-pic:hover {
+  cursor: pointer;
 }
 
 .tags {
