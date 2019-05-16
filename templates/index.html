@@ -86,7 +86,7 @@
         let search_params = new URLSearchParams(query_string);
         let search_str = search_params.toString();
         $.ajax({
-            url: '/articles' + ((search_str.length === 0)?"":("?" + search_str)),
+            url: '/articles' + ((search_str.length === 0) ? "" : ("?" + search_str)),
             type: 'GET',
             dataType: "json",
             success: function (data) {
@@ -110,10 +110,10 @@
 
                     let tagsSelector = $('#' + id + `>.article__container__tags`);
                     ingredients.forEach(function (ingredient) {
-                        tagsSelector.append(`<li class='article__container__tags__elem'>${ingredient}</li>`);
+                        tagsSelector.append(`<li class='article__container__tags__elem' onclick="tagsDisplay('${ingredient}')">${ingredient}</li>`);
                     });
                     tags.forEach(function (tag) {
-                        tagsSelector.append(`<li class='article__container__tags__elem'>${tag}</li>`);
+                        tagsSelector.append(`<li class='article__container__tags__elem' onclick="tagsDisplay('${tag}')">${tag}</li>`);
                     });
                 })
             },
@@ -122,7 +122,7 @@
             }
         });
 
-        if (query_string ==="" ||  query_string ==="?offset=0") {
+        if (query_string === "" || query_string === "?offset=0") {
             let hidden = document.getElementById("prev");
             hidden.className += " paginations__hidden";
         }
@@ -139,7 +139,7 @@
         if (search_params.has("offset")) {
             search_params.set('offset', parseInt(search_params.get('offset')) - 5);
         }
-        window.location.href =  '?' + search_params.toString();
+        window.location.href = '?' + search_params.toString();
     }
 
     function nextPage() {
@@ -148,11 +148,24 @@
         let search_params = new URLSearchParams(query_string);
         if (search_params.has("offset")) {
             search_params.set('offset', parseInt(search_params.get('offset')) + 5);
-        }
-        else {
+        } else {
             search_params.set("offset", '5');
         }
-        window.location.href =  '?' + search_params.toString();
+        window.location.href = '?' + search_params.toString();
+    }
+
+</script>
+
+<script>
+    function tagsDisplay(tagToDisplay) {
+        let url = new URL(window.location);
+        let query_string = url.search;
+        let search_params = new URLSearchParams(query_string);
+        search_params.set("tag", tagToDisplay);
+        if (search_params.has("offset")) {
+            search_params.set("offset", '0');
+        }
+        window.location.href = '?' + search_params.toString();
     }
 
 </script>
