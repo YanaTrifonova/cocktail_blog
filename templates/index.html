@@ -93,7 +93,7 @@
             $(topTags).each(function () {
                 let topTag = this.name;
                 let tagsBox = $(document.getElementById("tags__list__box"));
-                tagsBox.append(`<li class="tags__list__box-decor">${topTag}</li>`);
+                tagsBox.append(`<li class="tags__list__box-decor" onclick="tagsDisplay('${topTag}')">${topTag}</li>`);
             })
         },
         error: function () {
