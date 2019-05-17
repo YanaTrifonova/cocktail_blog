@@ -89,7 +89,6 @@
         dataType: "json",
         success: function (data) {
             let topTags = data["tags"];
-            console.log("OK");
             $(topTags).each(function () {
                 let topTag = this.name;
                 let tagsBox = $(document.getElementById("tags__list__box"));
@@ -99,7 +98,7 @@
         error: function () {
             alert('ERROR');
         }
-    })
+    });
 
 </script>
 
@@ -161,9 +160,9 @@
             }
         });
 
-        if (query_string === "" || query_string === "?offset=0") {
-            let hidden = document.getElementById("prev");
-            hidden.className += " paginations__hidden";
+        if (!(search_params.has("offset")) ||  search_params.get("offset") === "0") {
+            let hiddenPrev = document.getElementById("prev");
+            hiddenPrev.className += " paginations__hidden";
         }
     });
 
@@ -203,10 +202,6 @@
         search_params.set("tag", tagToDisplay);
         if (search_params.has("offset")) {
             search_params.set("offset", '0');
-        }
-        if (query_string === "" || query_string === "?offset=0") {
-            let hidden = document.getElementById("prev");
-            hidden.className += " paginations__hidden";
         }
         window.location.href = '?' + search_params.toString();
     }

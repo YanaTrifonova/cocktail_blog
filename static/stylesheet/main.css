@@ -357,19 +357,11 @@ i::before {
 .paginations__btn:hover, .paginations__btn:focus, .paginations__btn:active {
   text-decoration: underline;
   color: #c5c3c6;
+  cursor: pointer;
 }
 
 .paginations__hidden {
-  background-color: #dcdcdd;
-  border: 0.4rem solid #c5c3c6;
-  padding: 1.1rem 2.1rem;
-  color: #c5c3c6;
-}
-
-.paginations__hidden:hover {
-  color: #c5c3c6;
-  text-decoration: none;
-  cursor: default;
+  display: none;
 }
 
 .post {

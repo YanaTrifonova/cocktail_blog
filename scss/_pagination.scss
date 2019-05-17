@@ -26,16 +26,6 @@
   }
 
   &__hidden {
-    background-color: $color1;
-    border: .4rem solid $color2;
-    padding: 1.1rem 2.1rem;
-    color: $color2;
-
-    &:hover {
-      color: $color2;
-      text-decoration: none;
-      cursor: default;
-
-    }
+    display: none;
   }
 }
