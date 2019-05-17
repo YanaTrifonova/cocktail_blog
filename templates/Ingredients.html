@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-    <link rel="stylesheet" href="css/main.css">
+
+    <link rel="stylesheet" href="../static/stylesheet/main.css">
 </head>
 <body>
 <div class="nav">
@@ -16,12 +17,7 @@
     <div class="nav__details">
 
         <div class="nav__details__header">
-            <h1 class="nav__details__header-text">Cocktail Blog</h1>
-        </div>
-
-        <div class="nav__details__logo">
-            <img src="img/cock_transperent.png" class="nav__details__logo-pic"
-                 alt="logo picture with cock who drinks cocktail">
+            <a href="/" class="nav__details__header-link"><h1 class="nav__details__header-text">Cocktail Blog</h1></a>
         </div>
 
         <div class="nav__details__btn">
@@ -32,12 +28,17 @@
         </div>
 
         <div class="nav__details__search">
-            <form action="/action_page.php" class="nav__details__search-form">
+            <form class="nav__details__search-form">
                 <input class="nav__details__search-box" type="text" id="mySearch" name="q"
                        placeholder="Search the site...">
                 <button class="nav__details__search-btn" type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
+    </div>
+
+    <div class="nav__logo">
+        <a href="/" class="nav__logo-pic"><img src="/static/img/logo-small.svg"
+                                               alt="logo picture with cock who drinks cocktail"></a>
     </div>
 </div>
 </body>
