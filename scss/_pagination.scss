@@ -8,7 +8,7 @@
     width: 15rem;
     font-size: $font-medium;
     background-color: $color6;
-    color: $color2;
+    color: $color1;
     padding: 1.3rem 2.3rem;
     margin: 0 1.3rem 6rem;
     border-radius: 10rem;
@@ -20,7 +20,7 @@
     &:focus,
     &:active {
       text-decoration: underline;
-      color: $color2;
+      color: $color1;
       cursor: pointer;
     }
   }

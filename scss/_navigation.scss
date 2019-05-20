@@ -17,7 +17,7 @@
       padding-left: 2.3rem;
 
       &-text {
-        color: $color3;
+        color: $color5;
         font-size: $font-large;
         margin: 0 0 0 auto;
         padding: 0;
@@ -44,20 +44,20 @@
         text-align: center;
         text-decoration: none;
         font-size: $font-small;
-        color: $color3;
+        color: $color5;
         cursor: pointer;
         padding: 3.6rem .5rem;
         border: none;
 
         &:hover{
           padding-bottom: 3.3rem;
-          border-bottom: .3rem solid $color7;
+          border-bottom: .3rem solid $color5;
           text-decoration: none;
         }
 
         &:active,
         &:focus {
-          color: $color4;
+          color: $color5;
           outline: none;
           text-decoration: none;
         }
