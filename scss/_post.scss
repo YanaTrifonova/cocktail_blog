@@ -44,6 +44,10 @@
       border: none;
       font-size: 1.7rem;
     }
+
+    &-hidden {
+      display:none;
+    }
   }
 
   &__button {

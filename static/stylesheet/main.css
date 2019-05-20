@@ -500,6 +500,10 @@ i::before {
   font-size: 1.7rem;
 }
 
+.post__container-hidden {
+  display: none;
+}
+
 .post__button {
   display: -webkit-box;
   display: -ms-flexbox;
