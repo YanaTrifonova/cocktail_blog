@@ -10,7 +10,9 @@
     <script src="../static/javascript/article.js"></script>
     <script src="../static/javascript/pagination.js"></script>
     <script src="../static/javascript/topTags.js"></script>
-    <script src="../static/javascript/displayTheSelection.js"></script>
+    <script src="../static/javascript/displayArticle.js"></script>
+    <script src="../static/javascript/search.js"></script>
+    <script src="../static/javascript/pickDisplay.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Exo:400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,8 +35,8 @@
         </div>
 
         <div class="nav__details__search">
-            <form class="nav__details__search-form">
-                <input class="nav__details__search-box" type="text" id="mySearch" name="q"
+            <form class="nav__details__search-form" onsubmit="submit()">
+                <input class="nav__details__search-box" type="text" id="mySearch" name="search"
                        placeholder="Search the site...">
                 <button class="nav__details__search-btn" type="submit"><i class="fa fa-search"></i></button>
             </form>

@@ -38,10 +38,10 @@ $(document).ready(function () {
 
                 let tagsSelector = $('#' + id + `>.article__container__tags`);
                 ingredients.forEach(function (ingredient) {
-                    tagsSelector.append(`<li class='article__container__tags__elem' onclick="tagsDisplay('${ingredient}')">${ingredient}</li>`);
+                    tagsSelector.append(`<li class='article__container__tags__elem' onclick='pickDisplay("tag","${ingredient}")'>${ingredient}</li>`);
                 });
                 tags.forEach(function (tag) {
-                    tagsSelector.append(`<li class='article__container__tags__elem' onclick="tagsDisplay('${tag}')">${tag}</li>`);
+                    tagsSelector.append(`<li class='article__container__tags__elem' onclick='pickDisplay("tag","${tag}")'>${tag}</li>`);
                 });
             })
         },
