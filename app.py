@@ -1,10 +1,9 @@
 import logging
 import sys
-import json
 
 from flask import Flask, jsonify, request, render_template
 
-from orm.orm import get_articles, get_tags, write_article_with_tags, get_top_tags
+from orm.orm import get_articles, get_tags, write_article_with_tags, get_top_tags, get_cocktails, get_article_db
 
 app_name = "r2r"
 
@@ -22,13 +21,31 @@ logger.addHandler(stream_handler)
 def static_page():
     return render_template('index.html')
 
+
 @app.route('/post')
 def post_page():
     return render_template('post.html')
 
+
 @app.route('/ingredients')
-def post_ingredients():
+def ingredients_page():
     return render_template('Ingredients.html')
+
+
+@app.route('/list')
+def list_page():
+    return render_template('post.html')
+
+
+@app.route('/contactUs')
+def contact_us_page():
+    return render_template('contactUs.html')
+
+
+@app.route('/about')
+def about_page():
+    return render_template('about.html')
+
 
 @app.route('/articles', methods=['PUT'])
 def save_articles():
@@ -84,6 +101,18 @@ def get_top_req_tags():
     return jsonify(output), 200
 
 
+@app.route('/articles/<guid>', methods=['GET'])
+def get_article(guid):
+    try:
+        data = get_article_db(guid)
+        output = create_output(data, False, False)
+    except Exception as e:
+        msg = "Error while processing request " + str(e)
+        logger.exception(msg)
+        return jsonify({"error": msg}), 500
+    return jsonify(output), 200
+
+
 @app.route('/articles', methods=['GET'])
 def get_all_articles():
     try:
@@ -99,28 +128,49 @@ def get_all_articles():
         logger.exception(msg)
         return jsonify({"error": msg}), 400
     try:
-        data = get_articles(size, offset, search, cocktails_only, with_tag)
-        output = {
-            "articles": []
-        }
-        for dt in data:
-            all_tags = get_tags(None, [dt[0]])
-
-            output["articles"].append({
-                "id": dt[0],
-                "title": dt[1],
-                "body": dt[2],
-                "is_cocktail": dt[3],
-                "creation_time": dt[4],
-                "user_id": dt[5],
-                "tags": [tg[0] for tg in all_tags if not tg[1]],
-                "ingredients": [tg[0] for tg in all_tags if tg[1]]
-            })
+        data, has_prev, has_next = get_articles(size, offset, search, cocktails_only, with_tag)
+        output = create_output(data, has_prev, has_next)
     except Exception as e:
         msg = "Error while processing request " + str(e)
         logger.exception(msg)
         return jsonify({"error": msg}), 500
     return jsonify(output), 200
+
+@app.route('/cocktails', methods=['GET'])
+def get_all_cocktails():
+    try:
+        cocktails = get_cocktails()
+        output = {"cocktails": {}}
+        for id, nm, ingr in cocktails:
+            output["cocktails"].setdefault(ingr, []).append({"name": nm, "id": id})
+    except Exception as e:
+        msg = "Error while processing request " + str(e)
+        logger.exception(msg)
+        return jsonify({"error": msg}), 500
+    return jsonify(output), 200
+
+
+def create_output(data, has_prev, has_next):
+    output = {
+        "articles": [],
+        "has_previous": has_prev,
+        "has_next": has_next
+    }
+    for dt in data:
+        all_tags = get_tags(None, [dt[0]])
+
+        output["articles"].append({
+            "id": dt[0],
+            "title": dt[1],
+            "body": dt[2],
+            "is_cocktail": dt[3],
+            "creation_time": dt[4],
+            "user_id": dt[5],
+            "cocktail_name": dt[6],
+            "tags": [tg[0] for tg in all_tags if not tg[1]],
+            "ingredients": [tg[0] for tg in all_tags if tg[1]]
+        })
+    return output
 
 
 if __name__ == '__main__':
