@@ -11,6 +11,7 @@ db = pool.ThreadedConnectionPool(2, 100, host=os.environ["DB_ADDRESS"],
                                  password=os.environ["DB_PASSWORD"],
                                  port=os.environ["DB_PORT"])
 
+
 @contextmanager
 def get_connection():
     con = db.getconn()
@@ -33,6 +34,7 @@ def get_top_tags(top_number):
         cursor.execute(query)
         return cursor.fetchall()
 
+
 def get_tags(is_ingredient, ids):
     where_ddl = ""
     predicates = []
@@ -53,6 +55,30 @@ def get_tags(is_ingredient, ids):
         return cursor.fetchall()
 
 
+def get_article_db(guid):
+    query = """
+        SELECT a.id, a.title, a.body, a.is_cocktail, a.creation_time, a.user_id, a.cocktail_name FROM 
+        cocktails.articles a
+        where a.id = '{}'
+        """.format(guid)
+    with get_connection() as conn:
+        cursor = conn.cursor()
+        cursor.execute(query)
+        return cursor.fetchall()
+
+
+def get_cocktails():
+    query = """
+        select a.id, a.cocktail_name, t.tag_name from cocktails.articles a 
+        join cocktails.tags t on a.id = t.id
+        where t.is_main_ingredient = True
+    """
+    with get_connection() as conn:
+        cursor = conn.cursor()
+        cursor.execute(query)
+        return cursor.fetchall()
+
+
 def get_articles(size, offset, search, cocktails_only, with_tag):
     where_ddl = ""
     predicates = []
@@ -65,16 +91,30 @@ def get_articles(size, offset, search, cocktails_only, with_tag):
     if predicates:
         where_ddl = "WHERE " + ' and '.join(predicates)
     query = """
-    SELECT a.id, a.title, a.body, a.is_cocktail, a.creation_time, a.user_id FROM 
+    SELECT a.id, a.title, a.body, a.is_cocktail, a.creation_time, 
+    a.user_id, a.cocktail_name FROM 
     cocktails.articles a
     {}
     order by a.creation_time desc
     offset {} limit {}
     """.format(where_ddl, offset, size)
+    if int(offset) <= 0:
+        has_prev = False
+    else:
+        has_prev = True
+    query_next = """
+    SELECT EXISTS(SELECT * FROM cocktails.articles a
+    order by a.creation_time desc
+    offset {})
+    """.format(int(offset) + int(size))
     with get_connection() as conn:
         cursor = conn.cursor()
         cursor.execute(query)
-        return cursor.fetchall()
+        res_data = cursor.fetchall()
+        cursor.execute(query_next)
+        has_next = cursor.fetchone()[0]
+    return res_data, has_prev, has_next
+
 
 
 def write_article_with_tags(data):
@@ -84,18 +124,26 @@ def write_article_with_tags(data):
         if "id" in data:
             cursor.execute("DELETE FROM cocktails.articles where id = {}".format(data["id"]))
         new_id = str(uuid.uuid4())
-        cursor.execute("""INSERT INTO cocktails.articles (id, title, body, is_cocktail, creation_time, user_id) 
-                        VALUES('{}', '{}', '{}', {}, '{}', {})""".format(new_id,
-                                                                    data["title"].replace("'", r"''"),
-                                                                   data["body"].replace("'", r"''", ),
-                                                                   data["is_cocktail"],
-                                                                   datetime.datetime.now().isoformat(),
-                                                                   data["user_id"]))
+        cursor.execute("""INSERT INTO cocktails.articles (id, title, body, is_cocktail, creation_time, user_id, cocktail_name) 
+                        VALUES('{}', '{}', '{}', {}, '{}', {}, '{}')""".format(new_id,
+                                                                         data["title"].replace("'", r"''"),
+                                                                         data["body"].replace("'", r"''", ),
+                                                                         data["is_cocktail"],
+                                                                         datetime.datetime.now().isoformat(),
+                                                                         data["user_id"],
+                                                                         data.get("cocktail_name")))
 
-        all_tags = ["('{}', '{}', {})".format(new_id, tg.replace("'", "''"), False) for tg in data["tags"]]
-        all_tags.extend(["('{}', '{}', {})".format(new_id, tg.replace("'", "''"), True) for tg in data["ingredients"]])
+        all_tags = generate_tag_data(data, new_id, "tags")
+        all_ingr = generate_tag_data(data, new_id, "ingredients")
+        all_ingr[0][3] = True
+        all_tags.extend(all_ingr)
+        all_tags = ["('{}', '{}', {}, {})".format(tg[0], tg[1], tg[2], tg[3]) for tg in all_tags]
         cursor.execute("""
-            INSERT INTO cocktails.tags (id, tag_name, is_ingredient)
+            INSERT INTO cocktails.tags (id, tag_name, is_ingredient, is_main_ingredient)
             VALUES {}
         """.format(', '.join(all_tags)))
         conn.commit()
+
+
+def generate_tag_data(data, new_id, param_name):
+    return [[new_id, tg.replace("'", "''"), False, False] for tg in data[param_name]]
