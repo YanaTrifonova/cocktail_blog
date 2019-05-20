@@ -5,11 +5,11 @@
   justify-content: center;
 
   &__btn {
-    width: 15rem;
+    width: 20rem;
     font-size: $font-medium;
     background-color: $color6;
     color: $color1;
-    padding: 1.3rem 2.3rem;
+    padding: 1.3rem 1.3rem;
     margin: 0 1.3rem 6rem;
     border-radius: 10rem;
     text-align: center;
@@ -22,6 +22,18 @@
       text-decoration: underline;
       color: $color1;
       cursor: pointer;
+    }
+
+    &-chevron {
+      font-size: 1.5rem;
+
+      &-right {
+        padding-left: 1rem;
+      }
+
+      &-left {
+        padding-right: 1rem;
+      }
     }
   }
 

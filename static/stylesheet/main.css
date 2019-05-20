@@ -356,11 +356,11 @@ i::before {
 }
 
 .paginations__btn {
-  width: 15rem;
+  width: 20rem;
   font-size: 2.3rem;
   background-color: #f13342;
   color: #c8ced3;
-  padding: 1.3rem 2.3rem;
+  padding: 1.3rem 1.3rem;
   margin: 0 1.3rem 6rem;
   border-radius: 10rem;
   text-align: center;
@@ -372,6 +372,18 @@ i::before {
   text-decoration: underline;
   color: #c8ced3;
   cursor: pointer;
+}
+
+.paginations__btn-chevron {
+  font-size: 1.5rem;
+}
+
+.paginations__btn-chevron-right {
+  padding-left: 1rem;
+}
+
+.paginations__btn-chevron-left {
+  padding-right: 1rem;
 }
 
 .paginations__hidden {
