@@ -175,10 +175,16 @@ i::before {
 .nav__logo-pic {
   width: 20%;
   height: 20%;
+  -webkit-transition: -webkit-transform .2s;
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s;
 }
 
 .nav__logo-pic:hover {
   cursor: pointer;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .tags {

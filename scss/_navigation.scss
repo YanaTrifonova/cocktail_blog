@@ -139,10 +139,12 @@
     &-pic {
       width: 20%;
       height: 20%;
+      transition: transform .2s;
     }
 
     &-pic:hover {
       cursor: pointer;
+      transform: scale(1.1);
     }
   }
 }
