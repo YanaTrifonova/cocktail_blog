@@ -21,7 +21,7 @@ $.ajax({
         $(topTags).each(function () {
             let topTag = this.name;
             let tagsBox = $(document.getElementById("tags__top__box"));
-            tagsBox.append(`<li class="tags__top__box-decor" onclick="tagsDisplay('${topTag}')">${topTag}</li>`);
+            tagsBox.append(`<li class="tags__top__box-decor" onclick='pickDisplay("tag","${topTag}")'>${topTag}</li>`);
         })
     },
     error: function () {
