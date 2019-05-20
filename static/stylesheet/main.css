@@ -210,12 +210,12 @@ i::before {
   margin-bottom: 3rem;
 }
 
-.tags__list {
+.tags__top {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
 }
 
-.tags__list__box {
+.tags__top__box {
   /*ul*/
   list-style: none;
   display: -webkit-box;
@@ -232,7 +232,7 @@ i::before {
   margin-bottom: 3rem;
 }
 
-.tags__list__box-decor {
+.tags__top__box-decor {
   /*li*/
   display: -webkit-box;
   display: -ms-flexbox;
@@ -246,7 +246,7 @@ i::before {
   border: 0.1rem solid #c5c3c6;
 }
 
-.tags__list__box-decor:hover {
+.tags__top__box-decor:hover {
   text-decoration: underline;
   cursor: pointer;
   -webkit-transform: translateY(-0.2rem);

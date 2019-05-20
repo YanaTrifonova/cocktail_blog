@@ -4,19 +4,17 @@
     <meta charset="UTF-8">
     <title>Cocktail Blog</title>
 
+    <link rel="stylesheet" href="../static/stylesheet/main.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+    <script src="../static/javascript/article.js"></script>
+    <script src="../static/javascript/pagination.js"></script>
+    <script src="../static/javascript/topTags.js"></script>
+    <script src="../static/javascript/displayTheSelection.js"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Exo:400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- include libraries(jQuery, bootstrap) -->
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-
-    <!-- include summernote css/js -->
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
-
-    <link rel="stylesheet" href="../static/stylesheet/main.css">
 </head>
 <body>
 <div class="nav">
@@ -28,7 +26,7 @@
         </div>
 
         <div class="nav__details__btn">
-            <a href="Ingredients.html" class="nav__details__btn-ingr nav__details__btn-decor">Ingredients</a>
+            <a href="ingredients" class="nav__details__btn-ingr nav__details__btn-decor">Ingredients</a>
             <a href="#" class="nav__details__btn-list nav__details__btn-decor">List</a>
             <a href="#" class="nav__details__btn-about nav__details__btn-decor">About</a>
             <a href="#" class="nav__details__btn-cont nav__details__btn-decor">Contact Us</a>
@@ -55,8 +53,8 @@
         <h2 class="tags__primary-text">All that you want to know about cocktails</h2>
     </div>
 
-    <div class="tags__list">
-        <ul class="tags__list__box" id="tags__list__box"></ul>
+    <div class="tags__top">
+        <ul class="tags__top__box" id="tags__top__box"></ul>
     </div>
 
 </div>
@@ -67,159 +65,6 @@
     <a href="#" class="paginations__btn" id="prev" onclick="previousPage()">previous</a>
     <a href="#" class="paginations__btn" id="next" onclick="nextPage()">next</a>
 </div>
-
-<script>
-    let url = new URL(window.location);
-    let query_string = url.search;
-    let search_params = new URLSearchParams(query_string);
-    let search_str = search_params.toString();
-
-    let path = window.location.pathname;
-
-    let topTagsURL = '/tags/top';
-    if (window.location.pathname !== '/') {
-        topTagsURL += path;
-    } else if (search_str.length !== 0) {
-        topTagsURL += "?" + search_str;
-    }
-
-    $.ajax({
-        url: topTagsURL,
-        type: 'GET',
-        dataType: "json",
-        success: function (data) {
-            let topTags = data["tags"];
-            $(topTags).each(function () {
-                let topTag = this.name;
-                let tagsBox = $(document.getElementById("tags__list__box"));
-                tagsBox.append(`<li class="tags__list__box-decor" onclick="tagsDisplay('${topTag}')">${topTag}</li>`);
-            })
-        },
-        error: function () {
-            alert('ERROR');
-        }
-    });
-
-</script>
-
-
-<script>
-    $(document).ready(function () {
-        let url = new URL(window.location);
-        let query_string = url.search;
-        let search_params = new URLSearchParams(query_string);
-        let search_str = search_params.toString();
-
-        let path = window.location.pathname;
-
-        let ajaxURL = '/articles';
-        if (window.location.pathname !== '/') {
-            ajaxURL += path;
-        } else if (search_str.length !== 0) {
-            ajaxURL += "?" + search_str;
-        }
-
-        $.ajax({
-            url: ajaxURL,
-            type: 'GET',
-            dataType: "json",
-            success: function (data) {
-                let articles = data["articles"];
-
-                $(articles).each(function () {
-                    let id = this.id;
-                    let title = this.title;
-                    let creationTime = this.creation_time;
-                    let body = this.body;
-                    let ingredients = this.ingredients;
-                    let tags = this.tags;
-
-                    $(".article").append(`<div id=${id} class='article__container'></div>`);
-
-                    let idSelector = $('#' + id);
-                    idSelector.append(`<h2 class='article__container__header' onclick="articleDisplay('${id}')">${title}</h2>`);
-                    idSelector.append(`<p class='article__container__creationTime'>${creationTime}</p>`);
-                    idSelector.append(`<div class='article__container__body'>${body}</div>`);
-                    idSelector.append(`<ul class='article__container__tags'>Tags:</ul>`);
-
-                    let tagsSelector = $('#' + id + `>.article__container__tags`);
-                    ingredients.forEach(function (ingredient) {
-                        tagsSelector.append(`<li class='article__container__tags__elem' onclick="tagsDisplay('${ingredient}')">${ingredient}</li>`);
-                    });
-                    tags.forEach(function (tag) {
-                        tagsSelector.append(`<li class='article__container__tags__elem' onclick="tagsDisplay('${tag}')">${tag}</li>`);
-                    });
-                })
-            },
-            /*statusCode: {
-                404: function() {
-                    alert( "page not found" );
-                }*/
-            error: function () {
-                alert('ERROR');
-            }
-        });
-
-        if (!(search_params.has("offset")) || search_params.get("offset") === "0") {
-            let hiddenPrev = document.getElementById("prev");
-            hiddenPrev.className += " paginations__hidden";
-        }
-    });
-
-</script>
-
-<script>
-
-    function previousPage() {
-        let url = new URL(window.location);
-        let query_string = url.search;
-        let search_params = new URLSearchParams(query_string);
-        if (search_params.has("offset")) {
-            search_params.set('offset', parseInt(search_params.get('offset')) - 5);
-        }
-        window.location.href = '?' + search_params.toString();
-    }
-
-    function nextPage() {
-        let url = new URL(window.location);
-        let query_string = url.search;
-        let search_params = new URLSearchParams(query_string);
-        if (search_params.has("offset")) {
-            search_params.set('offset', parseInt(search_params.get('offset')) + 5);
-        } else {
-            search_params.set("offset", '5');
-        }
-        window.location.href = '?' + search_params.toString();
-    }
-
-</script>
-
-<script>
-    function tagsDisplay(tagToDisplay) {
-        let url = new URL(window.location);
-        let query_string = url.search;
-        let search_params = new URLSearchParams(query_string);
-        search_params.set("tag", tagToDisplay);
-        if (search_params.has("offset")) {
-            search_params.set("offset", '0');
-        }
-        window.location.href = '?' + search_params.toString();
-    }
-
-</script>
-
-<script>
-    function articleDisplay(idToDisplay) {
-        window.location.href = '/' + idToDisplay;
-
-        let hiddenPrev = document.getElementById("prev");
-        hiddenPrev.className += " paginations__hidden";
-
-        let hiddenNext = document.getElementById("next");
-        hiddenNext.className += " paginations__hidden";
-    }
-
-</script>
 
 </body>
 </html>
