@@ -15,6 +15,9 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
 
+    <script src="../static/javascript/post/summernoteEditField.js"></script>
+    <script src="../static/javascript/post/checkboxExpansion.js"></script>
+
     <link rel="stylesheet" href="../static/stylesheet/main.css">
 </head>
 <body>
@@ -37,38 +40,19 @@
     <button id="edit" class="btn btn-primary" onclick="edit()" type="button">Edit</button>
     <button id="save" class="btn btn-primary" onclick="save()" type="button">Save</button>
 
-    <script>
-        $(document).ready(function () {
-            $('#note').summernote();
-        });
-        var edit = function () {
-            $('.click2edit').summernote({focus: true});
-        };
-
-        var save = function () {
-            var markup = $('.click2edit').summernote('code');
-            $('.click2edit').summernote('destroy');
-        };
-    </script>
-
-    <!--CHECBOX ISCOCKTAIL?-->
+    <!--CHECKBOX IS COCKTAIL?-->
 
     <div class="post__checkbox">
         <input type="checkbox" name="isCocktail" value="isCocktail" id="isCocktail">
         <label class="post__checkbox-decor" for="isCocktail">Is cocktail?</label>
         <p class="post__checkbox-desc">Choose if this post is about cocktail</p>
-        <div class="post__container post__container-hidden" id="isCoctailName">
-            <label for="cockttailname" class="post__label">Write the name of the cocktail</label>
-            <textarea name="ingr" id="cockttailname" class="post__container-input"
+        <div class="post__container post__container-hidden" id="isCocktailName">
+            <label for="cocktailName" class="post__label">Write the name of the cocktail</label>
+            <textarea name="ingr" id="cocktailName" class="post__container-input"
                       placeholder="Name of the cocktail"></textarea>
         </div>
     </div>
 
-    <script type="text/javascript">
-        $('#isCocktail').change(function () {
-            $('#isCoctailName').toggle();
-        });
-    </script>
 
     <!--INGREDIENTS-->
 
