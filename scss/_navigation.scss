@@ -1,18 +1,16 @@
 .nav {
 
   &__details {
-    grid-column: 2 / 3 ;
-    grid-row: 1 / 2 ;
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 70rem 1fr;
     grid-column-gap: 4rem;
 
     &__header {
-      grid-column: 1 / 2 ;
-      grid-row: 1 / 2 ;
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
 
-      display:flex;
+      display: flex;
       align-items: center;
       padding-left: 2.3rem;
 
@@ -23,7 +21,7 @@
         padding: 0;
       }
 
-      &-link:hover{
+      &-link:hover {
         text-decoration: none;
         cursor: pointer;
       }
@@ -31,7 +29,7 @@
 
     &__btn {
       grid-column: 2 / 3;
-      grid-row: 1 / 2 ;
+      grid-row: 1 / 2;
 
       display: grid;
       grid-template-rows: 1fr;
@@ -40,7 +38,7 @@
       align-items: center;
       justify-content: center;
 
-      &-decor{
+      &-decor {
         text-align: center;
         text-decoration: none;
         font-size: $font-small;
@@ -49,7 +47,7 @@
         padding: 3.6rem .5rem;
         border: none;
 
-        &:hover{
+        &:hover {
           padding-bottom: 3.3rem;
           border-bottom: .3rem solid $color5;
           text-decoration: none;
@@ -63,39 +61,49 @@
         }
       }
 
-      &-ingr{
-        grid-column: 1 / 2 ;
-        grid-row: 1 / 2 ;
+      &-select {
+        text-align: center;
+        font-size: $font-small;
+        color: $color5;
+        cursor: pointer;
+        padding: 3.4rem .5rem;
+        border-bottom: .3rem solid $color5;
+        text-decoration: none;
       }
 
-      &-list{
-        grid-column: 2 / 3 ;
-        grid-row: 1 / 2 ;
+      &-ingr {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
       }
 
-      &-about{
-        grid-column: 3 / 4 ;
-        grid-row: 1 / 2 ;
+      &-list {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
       }
 
-      &-cont{
-        grid-column: 4 / 5 ;
-        grid-row: 1 / 2 ;
+      &-about {
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+      }
+
+      &-cont {
+        grid-column: 4 / 5;
+        grid-row: 1 / 2;
       }
     }
 
     &__search {
-      grid-column: 3 / 4 ;
-      grid-row: 1 / 2 ;
+      grid-column: 3 / 4;
+      grid-row: 1 / 2;
 
       margin: auto 0;
       padding-right: 2.3rem;
 
-      &:focus{
+      &:focus {
         outline: none;
       }
 
-      &-form{
+      &-form {
         display: flex;
       }
 
@@ -117,7 +125,7 @@
 
         font-family: 'Exo', sans-serif;
 
-        &:focus{
+        &:focus {
           outline: none;
         }
       }
@@ -132,7 +140,7 @@
   }
 
   &__logo {
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
 

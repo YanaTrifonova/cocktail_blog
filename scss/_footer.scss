@@ -1,0 +1,50 @@
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 70rem 1fr;
+  grid-column-gap: 4rem;
+  height: 30rem;
+  background-color: $color5;
+  font-size: $font-medium;
+
+  &__btn {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    flex-direction: column;
+
+    &-decor {
+      padding-left: 3rem;
+      margin: auto 0;
+    }
+
+    &-text {
+      color: $color1;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__backToTop {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    display: flex;
+
+    &-text {
+      color: $color2;
+      margin: auto auto;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+
+    &-arrow {
+      font-size: $font-xlarge;
+      padding-right: 2rem;
+    }
+  }
+}

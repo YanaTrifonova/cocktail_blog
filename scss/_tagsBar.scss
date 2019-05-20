@@ -39,7 +39,7 @@
         margin: .3rem;
         background-color: $color1;
         color: $color5;
-        border: .1rem solid rgba(197, 195, 198, 1);
+        border: .1rem solid $color2;
 
         &:hover {
           text-decoration: underline;
