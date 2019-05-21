@@ -1,8 +1,9 @@
 .footer {
   display: grid;
   grid-template-columns: 1fr 70rem 1fr;
+ /* grid-template-rows: 1fr 1fr;*/
   grid-column-gap: 4rem;
-  height: 30rem;
+  height: 10rem;
   background-color: $color5;
   font-size: $font-medium;
 
@@ -10,11 +11,17 @@
     grid-column: 2 / 3;
     grid-row: 1 / 2;
     display: flex;
-    flex-direction: column;
+    //flex-direction: column;
+    margin: auto auto;
 
     &-decor {
       padding-left: 3rem;
-      margin: auto 0;
+      padding-right: 3rem;
+      border-right: .2rem solid $color1;
+
+      &:last-of-type {
+        border-right: none;
+      }
     }
 
     &-text {
@@ -24,27 +31,6 @@
         cursor: pointer;
         text-decoration: underline;
       }
-    }
-  }
-
-  &__backToTop {
-    grid-column: 3 / 4;
-    grid-row: 1 / 2;
-    display: flex;
-
-    &-text {
-      color: $color2;
-      margin: auto auto;
-
-      &:hover {
-        cursor: pointer;
-        text-decoration: underline;
-      }
-    }
-
-    &-arrow {
-      font-size: $font-xlarge;
-      padding-right: 2rem;
     }
   }
 }

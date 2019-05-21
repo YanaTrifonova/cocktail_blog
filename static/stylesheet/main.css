@@ -393,8 +393,9 @@ i::before {
 .footer {
   display: grid;
   grid-template-columns: 1fr 70rem 1fr;
+  /* grid-template-rows: 1fr 1fr;*/
   grid-column-gap: 4rem;
-  height: 30rem;
+  height: 10rem;
   background-color: #435674;
   font-size: 2.3rem;
 }
@@ -405,15 +406,17 @@ i::before {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  margin: auto auto;
 }
 
 .footer__btn-decor {
   padding-left: 3rem;
-  margin: auto 0;
+  padding-right: 3rem;
+  border-right: 0.2rem solid #c8ced3;
+}
+
+.footer__btn-decor:last-of-type {
+  border-right: none;
 }
 
 .footer__btn-text {
@@ -423,29 +426,6 @@ i::before {
 .footer__btn-text:hover {
   cursor: pointer;
   text-decoration: underline;
-}
-
-.footer__backToTop {
-  grid-column: 3 / 4;
-  grid-row: 1 / 2;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.footer__backToTop-text {
-  color: #c5c3c6;
-  margin: auto auto;
-}
-
-.footer__backToTop-text:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-.footer__backToTop-arrow {
-  font-size: 4.5rem;
-  padding-right: 2rem;
 }
 
 .post {
