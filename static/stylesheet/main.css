@@ -428,6 +428,15 @@ i::before {
   text-decoration: underline;
 }
 
+.picture {
+  background-color: #435674;
+}
+
+.picture__background {
+  width: 100%;
+  height: auto;
+}
+
 .post {
   display: block;
   width: 66.6%;
