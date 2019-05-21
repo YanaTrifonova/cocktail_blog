@@ -34,7 +34,7 @@ def ingredients_page():
 
 @app.route('/list')
 def list_page():
-    return render_template('post.html')
+    return render_template('list.html')
 
 
 @app.route('/contactUs')
