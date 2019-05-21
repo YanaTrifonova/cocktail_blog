@@ -9,6 +9,9 @@
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 
+    <script src="../static/javascript/index/displayOneArticle.js"></script>
+    <script src="../static/javascript/ingredients/displayList.js"></script>
+
     <link rel="stylesheet" href="../static/stylesheet/main.css">
 </head>
 <body>
@@ -21,10 +24,10 @@
         </div>
 
         <div class="nav__details__btn">
-            <a href="ingredients" class="nav__details__btn-ingr nav__details__btn-select">Ingredients</a>
-            <a href="#" class="nav__details__btn-list nav__details__btn-decor">List</a>
-            <a href="#" class="nav__details__btn-about nav__details__btn-decor">About</a>
-            <a href="#" class="nav__details__btn-cont nav__details__btn-decor">Contact Us</a>
+            <a class="nav__details__btn-ingr nav__details__btn-decor" href="ingredients">Ingredients</a>
+            <a class="nav__details__btn-list nav__details__btn-decor" href="list">List</a>
+            <a class="nav__details__btn-about nav__details__btn-decor" href="about">About</a>
+            <a class="nav__details__btn-cont nav__details__btn-decor" href="contactUs">Contact Us</a>
         </div>
 
         <div class="nav__details__search">
@@ -42,9 +45,7 @@
     </div>
 </nav>
 
-<div>
-
-</div>
+<div id="list" class="cocktailList"></div>
 
 <footer class="footer">
     <div class="footer__btn">
