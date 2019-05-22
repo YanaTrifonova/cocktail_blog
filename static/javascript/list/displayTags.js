@@ -10,11 +10,11 @@ $(document).ready(function () {
                 let chrUpperCase = chr.toUpperCase();
                 let res = chrUpperCase.charAt(0);
                 if(res.toUpperCase() === res.toLowerCase()) {
-                    $("#Other").append(`<li class='alphabet__character__tag'>${chr}</li>`);
+                    $("#Other").append(`<li class='alphabet__container__tag' onclick='pickDisplay("tag","${chr}")'>${chr}</li>`);
                 } else {
-                    $("#"+res).append(`<li class='alphabet__character__tag'>${chr}</li>`);
+                    $("#"+res).append(`<li class='alphabet__container__tag' onclick='pickDisplay("tag","${chr}")'>${chr}</li>`);
                 }
             }
         }
     })
-})
+});
