@@ -421,6 +421,10 @@ i::before {
   text-decoration: underline;
 }
 
+.footer__btn-select {
+  color: lightslategrey;
+}
+
 .picture {
   background-color: #435674;
 }

@@ -1,4 +1,5 @@
 .cocktailList {
+  @extend %grid-container;
 
   &__container {
 
