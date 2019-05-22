@@ -1,0 +1,32 @@
+.contactUs {
+  @extend %grid-container;
+  grid-template-rows: minmax(12rem, max-content) minmax(15rem, calc(100vh - 19rem - 28.5rem + 11rem));
+
+  &__header {
+    @extend %primary-text-position;
+    grid-row: 1 / 2;
+
+    &-text {
+      @extend %primary-text-decoration;
+      margin-top: 6rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__letter {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    display: flex;
+
+    &__image {
+      margin: auto;
+
+      &:hover {
+        animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        cursor: pointer;
+      }
+    }
+  }
+}

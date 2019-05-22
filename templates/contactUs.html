@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Cocktail Blog - contact us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/stylesheet/main.css">
+    <script src="../static/javascript/contactUs/sendEmail.js"></script>
 </head>
 <body>
 
@@ -17,8 +20,9 @@
         <div class="nav__details__btn">
             <a class="nav__details__btn-ingr nav__details__btn-decor" href="ingredients">Ingredients</a>
             <a class="nav__details__btn-list nav__details__btn-decor" href="list">List</a>
-            <a class="nav__details__btn-about nav__details__btn-decor" href="about nav__details__btn-select">About</a>
-            <a class="nav__details__btn-cont nav__details__btn-decor nav__details__btn-select" href="contactUs">Contact Us</a>
+            <a class="nav__details__btn-about nav__details__btn-decor" href="about">About</a>
+            <a class="nav__details__btn-cont nav__details__btn-decor nav__details__btn-select" href="contactUs">Contact
+                Us</a>
         </div>
 
         <div class="nav__details__search">
@@ -31,12 +35,25 @@
     </div>
 </nav>
 
+<div class="contactUs">
+    <div class="contactUs__header">
+        <h2 class="contactUs__header-text">In the meantime, if you have any comments, suggestions and/or questions,
+            please do not hesitate to contact us</h2>
+    </div>
+
+    <div class="contactUs__letter">
+        <img class="contactUs__letter__image" src="../static/img/email-xs.png" onclick="sendEmail()">
+    </div>
+
+</div>
+
 <footer class="footer">
     <div class="footer__btn">
         <span class="footer__btn-decor"><a class="footer__btn-text" href="ingredients">Ingredients</a></span>
         <span class="footer__btn-decor"><a class="footer__btn-text" href="list">List</a></span>
         <span class="footer__btn-decor"><a class="footer__btn-text" href="about">About</a></span>
-        <span class="footer__btn-decor"><a class="footer__btn-text footer__btn-select" href="contactUs">Contact Us</a></span>
+        <span class="footer__btn-decor"><a class="footer__btn-text footer__btn-select"
+                                           href="contactUs">Contact Us</a></span>
     </div>
 </footer>
 

@@ -1,6 +1,7 @@
 @import "base.scss";
 @import "variables.scss";
 @import "extends.scss";
+@import "animation.scss";
 
 @import "navigation.scss";
 @import "tagsBar.scss";
@@ -8,8 +9,9 @@
 @import "pagination.scss";
 @import "footer.scss";
 
-@import "_about.scss";
+@import "about.scss";
 @import "ingredients.scss";
 @import "list.scss";
+@import "contactUs.scss";
 
 @import "post.scss";
