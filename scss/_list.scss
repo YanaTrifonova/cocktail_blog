@@ -1,18 +1,11 @@
 .alphabet {
-  display: grid;
-  grid-template-columns: 1fr 70rem 1fr;
+  @extend %grid-container;
 
   &__about {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @extend %primary-text-position;
 
     &-text {
-      color: $color5;
-      font-size: $font-large;
-      margin-top: 3rem;
+      @extend %primary-text-decoration;
       margin-bottom: 5rem;
     }
   }
@@ -41,15 +34,10 @@
       display: inline-flex;
       padding: .5rem 1.5rem;
       border-radius: 4rem;
-      background-color: $color1;
-      color: $color5;
-      border: .1rem solid rgba(197, 195, 198, 1);
+      @extend %button-background;
 
       &:hover {
-        text-decoration: underline;
-        cursor: pointer;
-        transform: translateY(-.2rem);
-        color: $color6;
+        @extend %pop-up;
       }
     }
   }

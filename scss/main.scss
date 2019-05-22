@@ -1,11 +1,12 @@
 @import "base.scss";
-@import "variables";
+@import "variables.scss";
+@import "extends.scss";
 
 @import "navigation.scss";
 @import "tagsBar.scss";
 @import "article.scss";
 @import "pagination.scss";
-@import "footer";
+@import "footer.scss";
 
 @import "_about.scss";
 @import "ingredients.scss";

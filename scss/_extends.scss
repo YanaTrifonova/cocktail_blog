@@ -1,0 +1,32 @@
+%grid-container {
+  display: grid;
+  grid-template-columns: 1fr 70rem 1fr;
+}
+
+%pop-up {
+  text-decoration: underline;
+  cursor: pointer;
+  transform: translateY(-.2rem);
+  color: $color6;
+}
+
+%button-background {
+  background-color: $color1;
+  color: $color5;
+  border: .1rem solid $color2;
+}
+
+%primary-text-position {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%primary-text-decoration {
+  color: $color5;
+  font-size: $font-large;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
