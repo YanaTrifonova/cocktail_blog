@@ -22,7 +22,7 @@
     &__header {
       font-size: $font-large;
       padding-bottom: 1rem;
-      color: $color5;
+      color: $color6;
 
       &:hover {
         @extend %hover;
@@ -31,7 +31,7 @@
 
     &__name {
       font-size: $font-medium;
-      color: $color6;
+      color: $color4;
       text-indent: 1rem;
       padding-bottom: 1rem;
 
