@@ -17,6 +17,7 @@
 
     <script src="../static/javascript/post/summernoteEditField.js"></script>
     <script src="../static/javascript/post/checkboxExpansion.js"></script>
+    <script src="../static/javascript/post/saveForm.js"></script>
 
     <link rel="stylesheet" href="../static/stylesheet/main.css">
 </head>
@@ -101,37 +102,6 @@
     </div>
 
 </div>
-
-<script>
-    function saveForm() {
-        var dataOut =
-            {
-                title: $('#header').val(),
-                // body: $('#note').innerHTML,
-                body: $("#note").summernote('code'),
-                is_cocktail: $('#isCocktail').is(":checked"),
-                user_id: 1,
-                tags: $('#tags').val().split(", "),
-                ingredients: $('#ingr').val().split(", "),
-                cocktail_name: $('#cocktailName').val(),
-            };
-
-        $.ajax({
-            url: '/articles',
-            type: 'PUT',
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify(dataOut),
-            success: function () {
-                alert('Load was performed.');
-            },
-            error: function () {
-                alert('ERROR');
-            }
-        });
-    }
-
-</script>
-
 
 </body>
 </html>
