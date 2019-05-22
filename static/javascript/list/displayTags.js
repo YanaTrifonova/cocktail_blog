@@ -10,11 +10,15 @@ $(document).ready(function () {
                 let chrUpperCase = chr.toUpperCase();
                 let res = chrUpperCase.charAt(0);
                 if(res.toUpperCase() === res.toLowerCase()) {
-                    $("#Other").append(`<li class='alphabet__container__tag' onclick='pickDisplay("tag","${chr}")'>${chr}</li>`);
+                    let other = $("#Other");
+                    other.append(`<li class='alphabet__container__tag' onclick='pickDisplay("tag","${chr}")'>${chr}</li>`);
+                    other.parent().addClass("alphabet__container-display");
                 } else {
-                    $("#"+res).append(`<li class='alphabet__container__tag' onclick='pickDisplay("tag","${chr}")'>${chr}</li>`);
+                    let char = $("#"+res);
+                    char.parent().addClass("alphabet__container-display");
+                    char.append(`<li class='alphabet__container__tag' onclick='pickDisplay("tag","${chr}")'>${chr}</li>`);
                 }
             }
         }
-    })
+    });
 });
