@@ -6,11 +6,14 @@
 
     <link href="https://fonts.googleapis.com/css?family=Exo:400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 
     <script src="../static/javascript/index/displayOneArticle.js"></script>
     <script src="../static/javascript/ingredients/displayList.js"></script>
+    <script src="../static/javascript/index/pickDisplay.js"></script>
 
     <link rel="stylesheet" href="../static/stylesheet/main.css">
 </head>
@@ -24,7 +27,7 @@
         </div>
 
         <div class="nav__details__btn">
-            <a class="nav__details__btn-ingr nav__details__btn-decor" href="ingredients">Ingredients</a>
+            <a class="nav__details__btn-ingr nav__details__btn-decor nav__details__btn-select" href="ingredients">Ingredients</a>
             <a class="nav__details__btn-list nav__details__btn-decor" href="list">List</a>
             <a class="nav__details__btn-about nav__details__btn-decor" href="about">About</a>
             <a class="nav__details__btn-cont nav__details__btn-decor" href="contactUs">Contact Us</a>
@@ -45,11 +48,16 @@
     </div>
 </nav>
 
-<div id="list" class="cocktailList"></div>
+<div id="list" class="cocktailList">
+    <div class="cocktailList__about">
+        <h1 class="cocktailList__about-text">Bellow are cocktails arranged by main ingredient:</h1>
+    </div>
+
+</div>
 
 <footer class="footer">
     <div class="footer__btn">
-        <span class="footer__btn-decor"><a class="footer__btn-text" href="ingredients">Ingredients</a></span>
+        <span class="footer__btn-decor"><a class="footer__btn-text footer__btn-select" href="ingredients">Ingredients</a></span>
         <span class="footer__btn-decor"><a class="footer__btn-text" href="list">List</a></span>
         <span class="footer__btn-decor"><a class="footer__btn-text" href="about">About</a></span>
         <span class="footer__btn-decor"><a class="footer__btn-text" href="contactUs">Contact Us</a></span>

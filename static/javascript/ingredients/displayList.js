@@ -9,7 +9,7 @@ $(document).ready(function () {
             for (var x in ingredient) {
                 $("#list").append(`<div id=${ingredient[x]} class='cocktailList__container'></div>`);
                 let containerSelector = $('#' + ingredient[x]);
-                containerSelector.append(`<h2 class='cocktailList__container__header'>${ingredient[x]}</h2>`);
+                containerSelector.append(`<h2 class='cocktailList__container__header' onclick="pickDisplay('tag', '${ingredient[x]}')">${ingredient[x]}</h2>`);
                 $(cocktails[ingredient[x]]).each(function () {
                     let id = this.id;
                     let cocktailName = this.name;
