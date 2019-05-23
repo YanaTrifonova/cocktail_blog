@@ -67,8 +67,7 @@
     &:active,
     &:focus {
       color: $color2;
-      text-decoration: underline;
-      cursor: pointer;
+      @extend %hover;
     }
 
     &-decor {
