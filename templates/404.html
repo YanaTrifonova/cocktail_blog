@@ -2,9 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Cocktail Blog - error</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Exo:400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="../static/stylesheet/main.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="../static/javascript/contactUs/sendEmail.js"></script>
+    <script src="../static/javascript/404/fixForFirefoxBroswer404.js"></script>
 </head>
 <body>
+<nav class="nav">
+
+    <div class="nav__details">
+
+        <div class="nav__details__header">
+            <a href="/" class="nav__details__header-link"><h1 class="nav__details__header-text">Cocktail Blog</h1></a>
+        </div>
+
+        <div class="nav__details__btn">
+            <a class="nav__details__btn-ingr nav__details__btn-decor" href="ingredients">Ingredients</a>
+            <a class="nav__details__btn-list nav__details__btn-decor" href="list">List</a>
+            <a class="nav__details__btn-about nav__details__btn-decor" href="about">About</a>
+            <a class="nav__details__btn-cont nav__details__btn-decor" href="contactUs">Contact Us</a>
+        </div>
+
+        <div class="nav__details__search">
+            <form class="nav__details__search-form" onsubmit="submit()">
+                <input class="nav__details__search-box" type="text" id="mySearch" name="search"
+                       placeholder="Search the site...">
+                <button class="nav__details__search-btn" type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="pageNotFound">
+    <div class="pageNotFound__header">
+        <h2 class="pageNotFound__header-text">Oops! The page can not be found for some reason. You may <span><a
+                href="/" class="pageNotFound__header-link">go back</a></span> to the main
+            page or <span class="pageNotFound__header-link" onclick="sendEmailError()">contact us</span> with this
+            issue.</h2>
+    </div>
+    <div class="pageNotFound__image">
+        <img class="pageNotFound__image-decor" src="../static/img/shark_404.png">
+    </div>
+</div>
+
+
+<footer class="footer">
+    <div class="footer__btn">
+        <span class="footer__btn-decor"><a class="footer__btn-text" href="ingredients">Ingredients</a></span>
+        <span class="footer__btn-decor"><a class="footer__btn-text" href="list">List</a></span>
+        <span class="footer__btn-decor"><a class="footer__btn-text" href="about">About</a></span>
+        <span class="footer__btn-decor"><a class="footer__btn-text" href="contactUs">Contact Us</a></span>
+    </div>
+</footer>
 
 </body>
 </html>

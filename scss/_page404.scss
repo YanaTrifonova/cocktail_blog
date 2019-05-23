@@ -1,0 +1,38 @@
+.pageNotFound {
+  @extend %grid-container;
+
+  &__header {
+    @extend %primary-text-position;
+    grid-row: 1 / 2;
+
+    &-text {
+      @extend %primary-text-decoration;
+
+    }
+
+    &-link {
+      color: $color6;
+      @extend %hover;
+    }
+  }
+
+  &__image {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+
+    display: flex;
+
+    &-decor {
+      height: 80%;
+      margin: auto;
+    }
+  }
+
+  &-fix {
+    grid-template-rows: minmax(9rem, max-content) minmax(10rem, calc(100vh - 19rem - 28.5rem + 8.5rem));
+  }
+
+  &-fixFF {
+    grid-template-rows: minmax(9rem, max-content) minmax(10rem, calc(100vh - 19rem - 28.5rem + 7.75rem));
+  }
+}
