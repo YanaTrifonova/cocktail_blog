@@ -1,6 +1,5 @@
 .contactUs {
   @extend %grid-container;
-  grid-template-rows: minmax(12rem, max-content) minmax(15rem, calc(100vh - 19rem - 28.5rem + 11rem));
 
   &__header {
     @extend %primary-text-position;
@@ -28,5 +27,12 @@
         cursor: pointer;
       }
     }
+  }
+
+  &-fix {
+    grid-template-rows: minmax(12rem, max-content) minmax(15rem, calc(100vh - 19rem - 28.5rem + 9.6rem));
+  }
+  &-fixFF {
+    grid-template-rows: minmax(12rem, max-content) minmax(15rem, calc(100vh - 19rem - 28.5rem + 11rem));
   }
 }
