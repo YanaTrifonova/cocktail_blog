@@ -1,18 +1,18 @@
-@import "base.scss";
-@import "variables.scss";
-@import "extends.scss";
-@import "animation.scss";
+@import "layout/base.scss";
+@import "base/variables.scss";
+@import "base/extends.scss";
+@import "base/animation.scss";
 
-@import "navigation.scss";
-@import "tagsBar.scss";
-@import "article.scss";
-@import "pagination.scss";
-@import "footer.scss";
+@import "layout/navigation.scss";
+@import "layout/tagsBar.scss";
+@import "layout/article.scss";
+@import "layout/pagination.scss";
+@import "layout/footer.scss";
 
-@import "about.scss";
-@import "ingredients.scss";
-@import "list.scss";
-@import "contactUs.scss";
+@import "modules/about.scss";
+@import "modules/ingredients.scss";
+@import "modules/list.scss";
+@import "modules/contactUs.scss";
 
-@import "page404.scss";
-@import "post.scss";
+@import "modules/page404.scss";
+@import "modules/post.scss";
