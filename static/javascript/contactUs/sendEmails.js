@@ -1,4 +1,4 @@
-function sendEmail() {
+function sendEmails() {
     window.open('mailto:trifonova.yana.prof@gmail.com?subject=Hi, Cocktail Blog!')
 }
 

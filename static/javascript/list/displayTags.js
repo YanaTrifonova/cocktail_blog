@@ -19,6 +19,7 @@ $(document).ready(function () {
                     char.append(`<li class='alphabet__container__tag' onclick='pickDisplay("tag","${chr}")'>${chr}</li>`);
                 }
             }
+            FooterLoader();
         }
     });
 });

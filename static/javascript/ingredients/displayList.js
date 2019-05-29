@@ -17,6 +17,7 @@ $(document).ready(function () {
                                                  onclick="articleDisplay('${id}')">${cocktailName}</p>`);
                 })
             }
+            FooterLoader();
         },
     })
 });

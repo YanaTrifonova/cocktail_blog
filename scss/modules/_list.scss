@@ -17,6 +17,10 @@
     border: .1rem solid $color2;
     padding: 3rem;
 
+    &:last-of-type {
+      margin-bottom: 5rem;
+    }
+
     &-display {
       display: inline;
     }

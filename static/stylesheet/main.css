@@ -430,7 +430,6 @@ i::before {
 .footer {
   display: grid;
   grid-template-columns: 1fr 70rem 1fr;
-  /* grid-template-rows: 1fr 1fr;*/
   grid-column-gap: 4rem;
   height: 10rem;
   background-color: #435674;
@@ -463,10 +462,6 @@ i::before {
 .footer__btn-text:hover {
   cursor: pointer;
   text-decoration: underline;
-}
-
-.footer__btn-select {
-  color: lightslategrey;
 }
 
 .picture {
@@ -521,6 +516,10 @@ i::before {
   display: none;
   border: 0.1rem solid #c5c3c6;
   padding: 3rem;
+}
+
+.alphabet__container:last-of-type {
+  margin-bottom: 5rem;
 }
 
 .alphabet__container-display {

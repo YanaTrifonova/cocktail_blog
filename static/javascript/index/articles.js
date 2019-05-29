@@ -46,7 +46,9 @@ $(document).ready(function () {
                     tagsSelector.append(`<li class='article__container__tags__elem' 
                                              onclick='pickDisplay("tag","${tag}")'>${tag}</li>`);
                 });
-            })
+            });
+            PaginationLoader();
+            FooterLoader();
         },
         statusCode: {
             500: function () {
@@ -58,8 +60,11 @@ $(document).ready(function () {
         },
     });
 
-    if (!(search_params.has("offset")) || search_params.get("offset") === "0") {
+    /*if (!(search_params.has("offset")) || search_params.get("offset") === "0") {
         let hiddenPrev = document.getElementById("prev");
         hiddenPrev.className += " paginations__hidden";
     }
+*/
+
+
 });

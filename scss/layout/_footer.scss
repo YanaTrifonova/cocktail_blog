@@ -1,7 +1,6 @@
 .footer {
   display: grid;
   grid-template-columns: 1fr 70rem 1fr;
- /* grid-template-rows: 1fr 1fr;*/
   grid-column-gap: 4rem;
   height: 10rem;
   background-color: $color5;
@@ -31,10 +30,6 @@
         cursor: pointer;
         text-decoration: underline;
       }
-    }
-
-    &-select {
-      color: $color8;
     }
   }
 }
