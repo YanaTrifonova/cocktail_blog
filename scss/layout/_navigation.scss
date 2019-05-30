@@ -46,11 +46,25 @@
         cursor: pointer;
         padding: 3.6rem .5rem;
         border: none;
+        position: relative;
+
+        &:before {
+          content: "";
+          width: 0;
+          height: 0.3rem;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          background: $color5;
+          transition: all 0.3s;
+        }
 
         &:hover {
-          padding-bottom: 3.3rem;
-          border-bottom: .3rem solid $color5;
-          text-decoration: none;
+          &:before {
+            width: 100%;
+            left: 0;
+            background: $color5;
+          }
         }
 
         &:active,

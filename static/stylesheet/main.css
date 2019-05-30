@@ -165,12 +165,25 @@ i::before {
   cursor: pointer;
   padding: 3.6rem .5rem;
   border: none;
+  position: relative;
 }
 
-.nav__details__btn-decor:hover {
-  padding-bottom: 3.3rem;
-  border-bottom: 0.3rem solid #435674;
-  text-decoration: none;
+.nav__details__btn-decor:before {
+  content: "";
+  width: 0;
+  height: 0.3rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #435674;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.nav__details__btn-decor:hover:before {
+  width: 100%;
+  left: 0;
+  background: #435674;
 }
 
 .nav__details__btn-decor:active, .nav__details__btn-decor:focus {
