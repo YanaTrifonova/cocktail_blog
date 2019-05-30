@@ -46,8 +46,19 @@ $(document).ready(function () {
                     tagsSelector.append(`<li class='article__container__tags__elem' 
                                              onclick='pickDisplay("tag","${tag}")'>${tag}</li>`);
                 });
+
             });
             PaginationLoader();
+
+            let prev = data["has_previous"];
+            let next = data["has_next"];
+            if (!prev) {
+                $('#prev').addClass(" paginations__hidden");
+            }
+            if (!next) {
+                $('#next').addClass(" paginations__hidden");
+            }
+
             FooterLoader();
         },
         statusCode: {
@@ -59,12 +70,6 @@ $(document).ready(function () {
             alert('ERROR');
         },
     });
-
-    /*if (!(search_params.has("offset")) || search_params.get("offset") === "0") {
-        let hiddenPrev = document.getElementById("prev");
-        hiddenPrev.className += " paginations__hidden";
-    }
-*/
 
 
 });
