@@ -588,13 +588,13 @@ i::before {
 }
 
 .contactUs-fix {
-  grid-template-rows: minmax(12rem, -webkit-max-content) minmax(15rem, calc(100vh - 19rem - 28.5rem + 9.6rem));
-  grid-template-rows: minmax(12rem, max-content) minmax(15rem, calc(100vh - 19rem - 28.5rem + 9.6rem));
+  grid-template-rows: minmax(12rem, -webkit-max-content) minmax(15rem, calc(100vh - 19rem - 28.5rem + 7.5rem));
+  grid-template-rows: minmax(12rem, max-content) minmax(15rem, calc(100vh - 19rem - 28.5rem + 7.5rem));
 }
 
 .contactUs-fixFF {
-  grid-template-rows: minmax(12rem, -webkit-max-content) minmax(15rem, calc(100vh - 19rem - 28.5rem + 11rem));
-  grid-template-rows: minmax(12rem, max-content) minmax(15rem, calc(100vh - 19rem - 28.5rem + 11rem));
+  grid-template-rows: minmax(12rem, -webkit-max-content) minmax(15rem, calc(100vh - 19rem - 28.5rem + 6.8rem));
+  grid-template-rows: minmax(12rem, max-content) minmax(15rem, calc(100vh - 19rem - 28.5rem + 6.8rem));
 }
 
 .pageNotFound__header {
