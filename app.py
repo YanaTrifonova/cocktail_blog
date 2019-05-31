@@ -114,6 +114,8 @@ def get_top_req_tags():
 def get_article(guid):
     try:
         data = get_article_db(guid)
+        if len(data) == 0:
+            return jsonify({"result": "Page not found"}), 404
         output = create_output(data, False, False)
     except Exception as e:
         msg = "Error while processing request " + str(e)
