@@ -7,8 +7,9 @@ $(document).ready(function () {
     let path = window.location.pathname;
 
     let ajaxURL = '/articles';
-    if (window.location.pathname !== '/') {
-        ajaxURL += path;
+    if (path.indexOf("/posts") !== -1) {
+        let splitted = path.split("/");
+        ajaxURL += "/" + splitted[splitted.length - 1];
     } else if (search_str.length !== 0) {
         ajaxURL += "?" + search_str;
     }
