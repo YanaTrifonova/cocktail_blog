@@ -113,6 +113,9 @@
       margin: auto 0;
       padding-right: 2.3rem;
 
+      display: flex;
+      flex-direction: row-reverse;
+
       &:focus {
         outline: none;
       }

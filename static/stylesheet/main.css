@@ -227,6 +227,13 @@ i::before {
   grid-row: 1 / 2;
   margin: auto 0;
   padding-right: 2.3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
 }
 
 .nav__details__search:focus {
