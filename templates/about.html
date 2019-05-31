@@ -2,9 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cocktail Blog - about all</title>
+    <title>Cocktail Blog - about</title>
+
+    <link rel="stylesheet" href="../static/stylesheet/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Exo:400,500,600,700" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
 </head>
 <body>
+<nav class="nav">
+
+    <div class="nav__details">
+
+        <div class="nav__details__header">
+            <a href="/" class="nav__details__header-link"><h1 class="nav__details__header-text">Cocktail Blog</h1></a>
+        </div>
+
+        <div class="nav__details__btn">
+            <a class="nav__details__btn-ingr nav__details__btn-decor" href="ingredients">Ingredients</a>
+            <a class="nav__details__btn-list nav__details__btn-decor" href="list">List</a>
+            <a class="nav__details__btn-about nav__details__btn-select" href="about">About</a>
+            <a class="nav__details__btn-cont nav__details__btn-decor" href="contactUs">Contact Us</a>
+        </div>
+
+        <div class="nav__details__search">
+            <form class="nav__details__search-form" onsubmit="submit()">
+                <input class="nav__details__search-box" type="text" id="mySearch" name="search"
+                       placeholder="Search the site...">
+                <button class="nav__details__search-btn" type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="picture">
+    <img class="picture__background" src="../static/img/about.png">
+</div>
+
+
+<footer class="footer">
+    <div class="footer__btn">
+        <span class="footer__btn-decor"><a class="footer__btn-text" href="ingredients">Ingredients</a></span>
+        <span class="footer__btn-decor"><a class="footer__btn-text" href="list">List</a></span>
+        <span class="footer__btn-decor"><a class="footer__btn-text" href="about">About</a></span>
+        <span class="footer__btn-decor"><a class="footer__btn-text" href="contactUs">Contact Us</a></span>
+    </div>
+</footer>
 
 </body>
 </html>

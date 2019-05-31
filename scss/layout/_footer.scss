@@ -1,0 +1,34 @@
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 70rem 1fr;
+  grid-column-gap: 4rem;
+  height: 10rem;
+  background-color: $color5;
+  font-size: $font-medium;
+
+  &__btn {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    margin: auto auto;
+
+    &-decor {
+      padding-left: 3rem;
+      padding-right: 3rem;
+      border-right: .2rem solid $color1;
+
+      &:last-of-type {
+        border-right: none;
+      }
+    }
+
+    &-text {
+      color: $color1;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }
+}

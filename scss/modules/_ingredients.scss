@@ -1,0 +1,49 @@
+.cocktailList {
+  @extend %grid-container;
+
+  &__about {
+    @extend %primary-text-position;
+
+    &-text {
+      @extend %primary-text-decoration;
+      padding-bottom: 6rem;
+    }
+  }
+
+  &__container {
+    grid-column: 2 / 3;
+    padding-bottom: 2rem;
+
+    &:last-of-type {
+      padding-bottom: 9rem;
+    }
+
+    &__header {
+      font-size: $font-large;
+      padding-bottom: 1rem;
+      color: $color6;
+
+      &:hover {
+        @extend %hover;
+      }
+    }
+
+    &__name {
+      font-size: $font-medium;
+      color: $color4;
+      text-indent: 1rem;
+      padding-bottom: 1rem;
+
+      &:before {
+        content: "\f000";
+        font-family: FontAwesome;
+        display: inline-block;
+        width: 5.3rem;
+      }
+
+      &:hover {
+        @extend %hover;
+      }
+    }
+  }
+}

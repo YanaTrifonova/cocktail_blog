@@ -31,19 +31,35 @@ $(document).ready(function () {
                 $(".article").append(`<div id=${id} class='article__container'></div>`);
 
                 let idSelector = $('#' + id);
-                idSelector.append(`<h2 class='article__container__header' onclick="articleDisplay('${id}')">${title}</h2>`);
+                idSelector.append(`<h2 class='article__container__header' 
+                                       onclick="articleDisplay('${id}')">${title}</h2>`);
                 idSelector.append(`<p class='article__container__creationTime'>${creationTime}</p>`);
                 idSelector.append(`<div class='article__container__body'>${body}</div>`);
                 idSelector.append(`<ul class='article__container__tags'>Tags:</ul>`);
 
                 let tagsSelector = $('#' + id + `>.article__container__tags`);
                 ingredients.forEach(function (ingredient) {
-                    tagsSelector.append(`<li class='article__container__tags__elem' onclick='pickDisplay("tag","${ingredient}")'>${ingredient}</li>`);
+                    tagsSelector.append(`<li class='article__container__tags__elem' 
+                                             onclick='pickDisplay("tag","${ingredient}")'>${ingredient}</li>`);
                 });
                 tags.forEach(function (tag) {
-                    tagsSelector.append(`<li class='article__container__tags__elem' onclick='pickDisplay("tag","${tag}")'>${tag}</li>`);
+                    tagsSelector.append(`<li class='article__container__tags__elem' 
+                                             onclick='pickDisplay("tag","${tag}")'>${tag}</li>`);
                 });
-            })
+
+            });
+            PaginationLoader();
+
+            let prev = data["has_previous"];
+            let next = data["has_next"];
+            if (!prev) {
+                $('#prev').addClass(" paginations__hidden");
+            }
+            if (!next) {
+                $('#next').addClass(" paginations__hidden");
+            }
+
+            FooterLoader();
         },
         statusCode: {
             500: function () {
@@ -55,8 +71,5 @@ $(document).ready(function () {
         },
     });
 
-    if (!(search_params.has("offset")) || search_params.get("offset") === "0") {
-        let hiddenPrev = document.getElementById("prev");
-        hiddenPrev.className += " paginations__hidden";
-    }
+
 });

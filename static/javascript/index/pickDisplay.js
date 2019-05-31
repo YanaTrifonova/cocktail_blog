@@ -8,5 +8,5 @@ function pickDisplay(p, value) {
     if (search_params.has("offset")) {
         search_params.set("offset", '0');
     }
-    window.location.href = '?' + search_params.toString();
+    window.location.href ='/' + '?' + search_params.toString();
 }

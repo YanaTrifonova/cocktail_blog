@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Cocktail Blog</title>
 
-    <link rel="stylesheet" href="../static/stylesheet/main.css">
+    <link href="../static/stylesheet/main.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 
     <script src="../static/javascript/index/articles.js"></script>
@@ -13,10 +13,13 @@
     <script src="../static/javascript/index/displayOneArticle.js"></script>
     <script src="../static/javascript/index/search.js"></script>
     <script src="../static/javascript/index/pickDisplay.js"></script>
+    <script src="../static/javascript/index/loadFooter.js"></script>
+    <script src="../static/javascript/index/loadPaginationBtn.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Exo:400,500,600,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+          integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" rel="stylesheet">
 
 </head>
 <body>
@@ -25,28 +28,28 @@
     <div class="nav__details">
 
         <div class="nav__details__header">
-            <a href="/" class="nav__details__header-link"><h1 class="nav__details__header-text">Cocktail Blog</h1></a>
+            <a class="nav__details__header-link" href="/"><h1 class="nav__details__header-text">Cocktail Blog</h1></a>
         </div>
 
         <div class="nav__details__btn">
-            <a href="ingredients" class="nav__details__btn-ingr nav__details__btn-decor">Ingredients</a>
-            <a href="list" class="nav__details__btn-list nav__details__btn-decor">List</a>
-            <a href="about" class="nav__details__btn-about nav__details__btn-decor">About</a>
-            <a href="contactUs" class="nav__details__btn-cont nav__details__btn-decor">Contact Us</a>
+            <a class="nav__details__btn-ingr nav__details__btn-decor" href="ingredients">Ingredients</a>
+            <a class="nav__details__btn-list nav__details__btn-decor" href="list">List</a>
+            <a class="nav__details__btn-about nav__details__btn-decor" href="about">About</a>
+            <a class="nav__details__btn-cont nav__details__btn-decor" href="contactUs">Contact Us</a>
         </div>
 
         <div class="nav__details__search">
             <form class="nav__details__search-form" onsubmit="submit()">
-                <input class="nav__details__search-box" type="text" id="mySearch" name="search"
-                       placeholder="Search the site...">
+                <input class="nav__details__search-box" id="mySearch" name="search" placeholder="Search the site..."
+                       type="text">
                 <button class="nav__details__search-btn" type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
     </div>
 
     <div class="nav__logo">
-        <a href="/" class="nav__logo-pic"><img src="/static/img/shark_logo.png"
-                                               alt="logo picture with cock who drinks cocktail"></a>
+        <a class="nav__logo-pic" href="/"><img alt="logo picture with cock who drinks cocktail"
+                                               src="/static/img/shark_logo.png"></a>
     </div>
 </nav>
 
@@ -63,23 +66,6 @@
 </div>
 
 <main class="article"></main>
-
-<div class="paginations">
-    <a href="#" class="paginations__btn" id="prev" onclick="previousPage()"><i class="fal fa-chevron-left paginations__btn-chevron paginations__btn-chevron-left"></i>previous</a>
-    <a href="#" class="paginations__btn" id="next" onclick="nextPage()">next<i class="fal fa-chevron-right paginations__btn-chevron paginations__btn-chevron-right"></i></a>
-</div>
-
-<footer class="footer">
-    <div class="footer__btn">
-        <span class="footer__btn-decor"><a href="ingredients" class="footer__btn-text">Ingredients</a></span>
-        <span class="footer__btn-decor"><a href="#" class="footer__btn-text">List</a></span>
-        <span class="footer__btn-decor"><a href="#" class="footer__btn-text">About</a></span>
-        <span class="footer__btn-decor"><a href="#" class="footer__btn-text">Contact Us</a></span>
-    </div>
-    <div class="footer__backToTop">
-        <a href="#" class="footer__backToTop-text"><i class="fas fa-arrow-up footer__backToTop-arrow"></i>Back to top</a>
-    </div>
-</footer>
 
 </body>
 </html>

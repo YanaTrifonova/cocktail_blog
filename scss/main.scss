@@ -1,10 +1,18 @@
-@import "base.scss";
-@import "variables";
+@import "layout/base.scss";
+@import "base/variables.scss";
+@import "base/extends.scss";
+@import "base/animation.scss";
 
-@import "navigation.scss";
-@import "tagsBar.scss";
-@import "article.scss";
-@import "pagination.scss";
-@import "footer";
+@import "layout/navigation.scss";
+@import "layout/tagsBar.scss";
+@import "layout/article.scss";
+@import "layout/pagination.scss";
+@import "layout/footer.scss";
 
-@import "post.scss";
+@import "modules/about.scss";
+@import "modules/ingredients.scss";
+@import "modules/list.scss";
+@import "modules/contactUs.scss";
+
+@import "modules/page404.scss";
+@import "modules/post.scss";

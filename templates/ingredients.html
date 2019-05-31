@@ -6,8 +6,15 @@
 
     <link href="https://fonts.googleapis.com/css?family=Exo:400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+    <script src="../static/javascript/index/displayOneArticle.js"></script>
+    <script src="../static/javascript/ingredients/displayList.js"></script>
+    <script src="../static/javascript/index/pickDisplay.js"></script>
+    <script src="../static/javascript/index/loadFooter.js"></script>
 
     <link rel="stylesheet" href="../static/stylesheet/main.css">
 </head>
@@ -21,10 +28,10 @@
         </div>
 
         <div class="nav__details__btn">
-            <a href="ingredients" class="nav__details__btn-ingr nav__details__btn-select">Ingredients</a>
-            <a href="#" class="nav__details__btn-list nav__details__btn-decor">List</a>
-            <a href="#" class="nav__details__btn-about nav__details__btn-decor">About</a>
-            <a href="#" class="nav__details__btn-cont nav__details__btn-decor">Contact Us</a>
+            <a class="nav__details__btn-ingr nav__details__btn-select" href="ingredients">Ingredients</a>
+            <a class="nav__details__btn-list nav__details__btn-decor" href="list">List</a>
+            <a class="nav__details__btn-about nav__details__btn-decor" href="about">About</a>
+            <a class="nav__details__btn-cont nav__details__btn-decor" href="contactUs">Contact Us</a>
         </div>
 
         <div class="nav__details__search">
@@ -42,20 +49,12 @@
     </div>
 </nav>
 
-<div>
+<div id="list" class="cocktailList">
+    <div class="cocktailList__about">
+        <h1 class="cocktailList__about-text">Bellow are cocktails arranged by main ingredient:</h1>
+    </div>
 
 </div>
 
-<footer class="footer">
-    <div class="footer__btn">
-        <span class="footer__btn-decor"><a href="ingredients" class="footer__btn-text">Ingredients</a></span>
-        <span class="footer__btn-decor"><a href="#" class="footer__btn-text">List</a></span>
-        <span class="footer__btn-decor"><a href="#" class="footer__btn-text">About</a></span>
-        <span class="footer__btn-decor"><a href="#" class="footer__btn-text">Contact Us</a></span>
-    </div>
-    <div class="footer__backToTop">
-        <a href="#" class="footer__backToTop-text"><i class="fas fa-arrow-up footer__backToTop-arrow"></i>Back to top</a>
-    </div>
-</footer>
 </body>
 </html>

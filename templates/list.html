@@ -3,8 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <title>Cocktail Blog - list of cocktails</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Exo:400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="../static/javascript/list/displayTags.js"></script>
+    <script src="../static/javascript/index/pickDisplay.js"></script>
+    <script src="../static/javascript/index/loadFooter.js"></script>
+
+    <link rel="stylesheet" href="../static/stylesheet/main.css">
+
 </head>
 <body>
+
+<nav class="nav">
+
+    <div class="nav__details">
+
+        <div class="nav__details__header">
+            <a class="nav__details__header-link" href="/"><h1 class="nav__details__header-text">Cocktail Blog</h1></a>
+        </div>
+
+        <div class="nav__details__btn">
+            <a class="nav__details__btn-ingr nav__details__btn-decor" href="ingredients">Ingredients</a>
+            <a class="nav__details__btn-list nav__details__btn-select" href="list">List</a>
+            <a class="nav__details__btn-about nav__details__btn-decor" href="about">About</a>
+            <a class="nav__details__btn-cont nav__details__btn-decor" href="contactUs">Contact Us</a>
+        </div>
+
+        <div class="nav__details__search">
+            <form class="nav__details__search-form" onsubmit="submit()">
+                <input class="nav__details__search-box" id="mySearch" name="search" placeholder="Search the site..."
+                       type="text">
+                <button class="nav__details__search-btn" type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <div class="nav__logo">
+        <a class="nav__logo-pic" href="/"><img alt="logo picture with cock who drinks cocktail"
+                                               src="/static/img/shark_logo.png"></a>
+    </div>
+</nav>
+
+<div id="alphabet" class="alphabet">
+    <div class="alphabet__about">
+        <h1 class="alphabet__about-text">Below are all tags in alphabetical order:</h1>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">A</h2>
+        <ul id="A"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">B</h2>
+        <ul id="B"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">C</h2>
+        <ul id="C"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">D</h2>
+        <ul id="D"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">E</h2>
+        <ul id="E"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">F</h2>
+        <ul id="F"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">G</h2>
+        <ul id="G"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">H</h2>
+        <ul id="H"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">I</h2>
+        <ul id="I"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">J</h2>
+        <ul id="J"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">K</h2>
+        <ul id="K"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">L</h2>
+        <ul id="L"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">M</h2>
+        <ul id="M"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">N</h2>
+        <ul id="N"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">O</h2>
+        <ul id="O"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">P</h2>
+        <ul id="P"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">Q</h2>
+        <ul id="Q"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">R</h2>
+        <ul id="R"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">S</h2>
+        <ul id="S"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">T</h2>
+        <ul id="T"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">U</h2>
+        <ul id="U"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">V</h2>
+        <ul id="V"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">W</h2>
+        <ul id="W"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">X</h2>
+        <ul id="X"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">Y</h2>
+        <ul id="Y"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">Z</h2>
+        <ul id="Z"></ul>
+    </div>
+    <div class="alphabet__container"><h2 class="alphabet__container__header">#</h2>
+        <ul id="Other"></ul>
+    </div>
+</div>
+
 
 </body>
 </html>

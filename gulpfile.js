@@ -13,7 +13,7 @@ function css() {
 }
 
 function watchFiles() {
-    gulp.watch('scss/*.scss', css);
+    gulp.watch('scss/**', css);
     gulp.watch('templates/index.html')
 }
 
