@@ -104,9 +104,10 @@ def get_articles(size, offset, search, cocktails_only, with_tag):
         has_prev = True
     query_next = """
     SELECT EXISTS(SELECT * FROM cocktails.articles a
+    {}
     order by a.creation_time desc
     offset {})
-    """.format(int(offset) + int(size))
+    """.format(where_ddl, int(offset) + int(size))
     with get_connection() as conn:
         cursor = conn.cursor()
         cursor.execute(query)
