@@ -17,6 +17,11 @@ stream_handler.setFormatter(formatter)
 logger.addHandler(stream_handler)
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return render_template('404.html'), 404
+
 @app.route('/')
 def static_page():
     return render_template('index.html')
