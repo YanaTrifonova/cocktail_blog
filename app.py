@@ -1,9 +1,12 @@
 import logging
 import sys
 
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, redirect
+from flask_login import login_user, login_required, logout_user, LoginManager
+from werkzeug.security import check_password_hash
 
-from orm.orm import get_articles, get_tags, write_article_with_tags, get_top_tags, get_cocktails, get_article_db
+from orm.orm import get_articles, get_tags, write_article_with_tags, get_top_tags, get_cocktails, get_article_db, \
+    get_user_by_name, get_user_by_id
 
 app_name = "r2r"
 
@@ -32,6 +35,7 @@ def static_single_post(guid):
     return render_template('index.html')
 
 @app.route('/post')
+@login_required
 def post_page():
     return render_template('post.html')
 
@@ -55,8 +59,35 @@ def contact_us_page():
 def about_page():
     return render_template('about.html')
 
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect("/")
+
+@app.route('/login', methods=['POST'])
+def login_post():
+    name = request.form.get('name')
+    password = request.form.get('password')
+    remember = True if request.form.get('remember') else False
+
+    user = get_user_by_name(name)
+
+    # check if user actually exists
+    # take the user supplied password, hash it, and compare it to the hashed password in database
+    if not user or not check_password_hash(user.password, password):
+        return redirect("/login", code=403) # if user doesn't exist or password is wrong, reload the page
+
+    # if the above check passes, then we know the user has the right credentials
+    login_user(user, remember=remember)
+    return redirect("/post")
 
 @app.route('/articles', methods=['PUT'])
+@login_required
 def save_articles():
     body = request.get_json()
     try:
@@ -187,4 +218,16 @@ def create_output(data, has_prev, has_next):
 if __name__ == '__main__':
     # This is used when running locally. Gunicorn is used to run the
     # application on Google App Engine. See entrypoint in app.yaml.
+
+    #TODO: move it to cfg
+    app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopasdsadO'
+    login_manager = LoginManager()
+    login_manager.login_view = 'login'
+    login_manager.init_app(app)
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        # since the user_id is just the primary key of our user table, use it in the query for the user
+        return get_user_by_id(int(user_id))
+
     app.run(host='127.0.0.1', port=8080, debug=True)

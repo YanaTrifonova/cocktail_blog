@@ -3,6 +3,7 @@ import os
 import uuid
 from contextlib import contextmanager
 
+from flask_login import UserMixin
 from psycopg2 import pool
 
 db = pool.ThreadedConnectionPool(2, 100, host=os.environ["DB_ADDRESS"],
@@ -148,3 +149,22 @@ def write_article_with_tags(data):
 
 def generate_tag_data(data, new_id, param_name):
     return [[new_id, tg.replace("'", "''"), False, False] for tg in data[param_name]]
+
+
+class User(UserMixin):
+    def __init__(self, id, name, password, is_active):
+        self.id = id
+        self.name = name
+        self.password = password
+
+def get_user_by_name(user_name):
+    with get_connection() as conn:
+        cursor = conn.cursor()
+        cursor.execute('SELECT id, "name", password, is_active from cocktails.users where "name" = \'{}\''.format(user_name))
+        return User(*cursor.fetchone())
+
+def get_user_by_id(user_id):
+    with get_connection() as conn:
+        cursor = conn.cursor()
+        cursor.execute('SELECT id, "name", password, is_active from cocktails.users where "id" = \'{}\''.format(user_id))
+        return User(*cursor.fetchone())
