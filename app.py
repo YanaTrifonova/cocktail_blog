@@ -23,7 +23,7 @@ def static_page():
 
 
 @app.route('/posts/<guid>')
-def static_page(guid):
+def static_single_post(guid):
     return render_template('index.html')
 
 @app.route('/post')
