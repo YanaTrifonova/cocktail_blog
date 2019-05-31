@@ -22,6 +22,10 @@ def static_page():
     return render_template('index.html')
 
 
+@app.route('/posts/<guid>')
+def static_page(guid):
+    return render_template('index.html')
+
 @app.route('/post')
 def post_page():
     return render_template('post.html')
