@@ -4,12 +4,7 @@ $(document).ready(function () {
     let search_params = new URLSearchParams(query_string);
     let search_str = search_params.toString();
 
-    let path = window.location.pathname;
-
     let topTagsURL = '/tags/top';
-    // if (window.location.pathname !== '/') {
-    //     topTagsURL += path;
-    // } else
     if (search_str.length !== 0) {
         topTagsURL += "?" + search_str;
     }

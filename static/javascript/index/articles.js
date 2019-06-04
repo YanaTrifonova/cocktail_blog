@@ -65,6 +65,10 @@ $(document).ready(function () {
         statusCode: {
             500: function () {
                 alert('ERROR'); // build new
+            },
+
+            404: function () {
+                alert('return 404'); // build new
             }
         },
         error: function () {

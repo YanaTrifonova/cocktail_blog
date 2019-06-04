@@ -1,5 +1,10 @@
 function submit() {
     let searchInput = $('#mySearch').val();
-    tagsDisplay("search", searchInput)
+    pickDisplay("search", searchInput);
 }
 
+function enterPressed(e) {
+    if (e.which === 13) {
+        submit();
+    }
+}
