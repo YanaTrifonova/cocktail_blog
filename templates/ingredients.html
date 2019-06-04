@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
     <title>Cocktail Blog - ingredients</title>
 
     <link href="https://fonts.googleapis.com/css?family=Exo:400,500,600,700" rel="stylesheet">
@@ -15,37 +15,50 @@
     <script src="../static/javascript/ingredients/displayList.js"></script>
     <script src="../static/javascript/index/pickDisplay.js"></script>
     <script src="../static/javascript/index/loadFooter.js"></script>
+    <script src="../static/javascript/index/searchDisplay.js"></script>
+    <script src="../static/javascript/index/burgerMenu.js"></script>
 
     <link rel="stylesheet" href="../static/stylesheet/main.css">
+
 </head>
 <body>
 <nav class="nav">
 
     <div class="nav__details">
 
-        <div class="nav__details__header">
-            <a href="/" class="nav__details__header-link"><h1 class="nav__details__header-text">Cocktail Blog</h1></a>
+        <div class="nav__details__header" id="header">
+            <a class="nav__details__header-link" href="/"><h1 class="nav__details__header-text">Cocktail Blog</h1></a>
         </div>
 
-        <div class="nav__details__btn">
-            <a class="nav__details__btn-ingr nav__details__btn-select" href="ingredients">Ingredients</a>
+        <button class="nav__details__btn-mobile" id="menuBar" onclick="menu()">
+            <i id="burger" class="fas fa-bars nav__details__btn-mobile-pic"></i>
+            <i id="crossMenu"></i>
+        </button>
+
+        <div class="nav__details__btn nav__details__btn-hidden" id="menuBtn">
+
+            <a class="nav__details__btn-ingr nav__details__btn-decor" href="ingredients">Ingredients</a>
             <a class="nav__details__btn-list nav__details__btn-decor" href="list">List</a>
             <a class="nav__details__btn-about nav__details__btn-decor" href="about">About</a>
             <a class="nav__details__btn-cont nav__details__btn-decor" href="contactUs">Contact Us</a>
         </div>
 
         <div class="nav__details__search">
-            <form class="nav__details__search-form" onsubmit="submit()">
-                <input class="nav__details__search-box" type="text" id="mySearch" name="search"
-                       placeholder="Search the site...">
-                <button class="nav__details__search-btn" type="submit"><i class="fa fa-search"></i></button>
-            </form>
+            <div class="nav__details__search-form" onsubmit="submit()">
+                <input class="nav__details__search-box" id="mySearch" name="search"
+                       placeholder="Search through articles..."
+                       type="text" onkeyup="enterPressed(event)">
+                <button class="nav__details__search-btn" onclick="searchBtnClicked()">
+                    <i id="search" class="fa fa-search nav__details__search-pic"></i>
+                    <i id="crossSearch" class="nav__details__search-pic"></i>
+                </button>
+            </div>
         </div>
     </div>
 
     <div class="nav__logo">
-        <a href="/" class="nav__logo-pic"><img src="/static/img/shark_logo.png"
-                                               alt="logo picture with cock who drinks cocktail"></a>
+        <a class="nav__logo-pic" href="/"><img alt="logo picture with cock who drinks cocktail"
+                                               src="/static/img/shark_logo.png"></a>
     </div>
 </nav>
 
