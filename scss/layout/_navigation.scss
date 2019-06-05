@@ -238,6 +238,10 @@
           outline: none;
         }
 
+        &:hover {
+          cursor: pointer;
+        }
+
         @media only screen and (max-width: 800px) {
           display: flex;
           position: absolute;
@@ -420,6 +424,10 @@
 
           &:focus {
             outline: none;
+          }
+
+          &:hover {
+            cursor: pointer;
           }
         }
       }
