@@ -264,6 +264,12 @@
         }
       }
 
+      &-hidden {
+        @media only screen and (max-width: 800px) {
+          display: none;
+        }
+      }
+
       &-ingr {
         grid-column: 1 / 2;
         grid-row: 1 / 2;
@@ -458,6 +464,8 @@
         transform: none;
         width: 50%;
         height: 95%;
+        z-index: -1;
+        margin-top: -2rem;
       }
     }
 
