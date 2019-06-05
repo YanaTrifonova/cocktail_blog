@@ -2,12 +2,23 @@
   @extend %grid-container;
   grid-template-rows: minmax(max-content, 1fr) max-content;
   grid-column-gap: 4rem;
+  
+  @media only screen and (max-width: 425px) {
+    grid-template-columns: 1fr minmax(10rem, 70rem) 1fr;
+    grid-column-gap: 2rem;
+  }
 
   &__primary {
     @extend %primary-text-position;
 
     &-text {
       @extend %primary-text-decoration;
+
+      @media only screen and (max-width: 425px) {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        line-height: 4rem;
+      }
     }
   }
 
@@ -22,6 +33,10 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 3rem;
+
+      @media only screen and (max-width: 425px) {
+        margin-bottom: 2rem;
+      }
 
       &-decor { /*li*/
         display: flex;

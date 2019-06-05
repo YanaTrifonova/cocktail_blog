@@ -6,6 +6,7 @@
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
   font-family: 'Exo', sans-serif;
+  word-wrap: break-word;
 }
 
 html {
@@ -415,6 +416,10 @@ i::before {
   outline: none;
 }
 
+.nav__details__btn-mobile:hover {
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 800px) {
   .nav__details__btn-mobile {
     display: -webkit-box;
@@ -613,6 +618,9 @@ i::before {
   .nav__details__search-btn:focus {
     outline: none;
   }
+  .nav__details__search-btn:hover {
+    cursor: pointer;
+  }
 }
 
 .nav__details__search-pic {
@@ -765,11 +773,24 @@ i::before {
   color: #435674;
 }
 
+@media only screen and (max-width: 425px) {
+  .article__container {
+    font-size: 2.4rem;
+    padding: 2rem;
+  }
+}
+
 .article__container__header {
   font-size: 4.5rem;
   color: #f13342;
   margin-bottom: 2rem;
   margin-top: 0;
+}
+
+@media only screen and (max-width: 425px) {
+  .article__container__header {
+    font-size: 4.8rem;
+  }
 }
 
 .article__container__header:hover {
@@ -782,8 +803,20 @@ i::before {
   margin-bottom: 4rem;
 }
 
+@media only screen and (max-width: 425px) {
+  .article__container__creationTime {
+    font-size: 1.2rem;
+  }
+}
+
 .article__container__body {
   font-size: 1.7rem;
+}
+
+@media only screen and (max-width: 425px) {
+  .article__container__body {
+    font-size: 1.75rem;
+  }
 }
 
 .article__container__tags {
@@ -812,6 +845,12 @@ i::before {
   padding: .5rem 1.5rem;
   border-radius: 4rem;
   margin: .3rem;
+}
+
+@media only screen and (max-width: 425px) {
+  .article__container__tags__elem {
+    font-size: 1.75rem;
+  }
 }
 
 .paginations {
@@ -851,7 +890,6 @@ i::before {
 }
 
 .paginations__btn:hover, .paginations__btn:focus, .paginations__btn:active {
-  text-decoration: underline;
   color: #c8ced3;
   cursor: pointer;
 }

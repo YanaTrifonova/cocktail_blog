@@ -6,16 +6,35 @@
   background-color: $color5;
   font-size: $font-medium;
 
+  @media only screen and (max-width: 425px) {
+    grid-template-columns: 1fr minmax(10rem, 70rem) 1fr;
+    grid-column-gap: 2rem;
+    height: auto;
+  }
+
   &__btn {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
     display: flex;
     margin: auto auto;
 
+    @media only screen and (max-width: 425px) {
+      flex-wrap: wrap;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
     &-decor {
       padding-left: 3rem;
       padding-right: 3rem;
       border-right: .2rem solid $color1;
+
+      @media only screen and (max-width: 425px) {
+        width: 100%;
+        display: flex;
+        margin: 2rem;
+        border: none;
+      }
 
       &:last-of-type {
         border-right: none;
@@ -24,6 +43,10 @@
 
     &-text {
       color: $color1;
+
+      @media only screen and (max-width: 425px) {
+        margin: 0 auto;
+      }
 
       &:hover {
         cursor: pointer;

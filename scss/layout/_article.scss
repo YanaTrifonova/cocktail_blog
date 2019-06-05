@@ -2,6 +2,11 @@
   @extend %grid-container;
   grid-column-gap: 4rem;
 
+  @media only screen and (max-width: 425px) {
+    grid-template-columns: 1fr minmax(10rem, 70rem) 1fr;
+    grid-column-gap: 2rem;
+  }
+
   &__container {
     grid-column: 2 / 3;
     border: 1px solid $color2;
@@ -13,11 +18,20 @@
     font-size: $font-medium;
     color: $color5;
 
+    @media only screen and (max-width: 425px) {
+      font-size: $font-medium_mobile;
+      padding: 2rem;
+    }
+
     &__header {
       font-size: $font-xlarge;
       color: $color6;
       margin-bottom: 2rem;
       margin-top: 0;
+
+      @media only screen and (max-width: 425px) {
+        font-size: $font-xlarge-mobile;
+      }
 
       &:hover{
         text-decoration: underline;
@@ -28,10 +42,18 @@
     &__creationTime {
       font-size: $font-xsmall;
       margin-bottom: 4rem;
+
+      @media only screen and (max-width: 425px) {
+        font-size: $font-xsmall_mobile;
+      }
     }
 
     &__body {
       font-size: $font-small;
+
+      @media only screen and (max-width: 425px) {
+        font-size: $font-small_mobile;
+      }
     }
 
     &__tags {
@@ -54,13 +76,14 @@
         margin: .3rem;
         @extend %button-background;
 
+        @media only screen and (max-width: 425px) {
+          font-size: $font-small_mobile;
+        }
+
         &:hover {
           @extend %pop-up;
         }
       }
-
     }
-
   }
-
 }
