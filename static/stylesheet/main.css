@@ -1011,6 +1011,7 @@ i::before {
 
 .pageNotFound__image-decor {
   height: 80%;
+  width: auto;
   margin: auto;
 }
 
