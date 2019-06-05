@@ -96,7 +96,6 @@
         @media only screen and (max-width: 425px) {
           margin-top: 2rem;
         }
-
       }
 
       &-link {
@@ -193,6 +192,7 @@
             width: 100%;
             left: 0;
             background: $color5;
+
             @media only screen and (max-width: 425px) {
               background-color: white;
             }
@@ -327,7 +327,6 @@
         top: 2rem;
       }
 
-
       &:focus {
         outline: none;
       }
@@ -372,17 +371,10 @@
           border-left: 1px solid $color2;
           border-right: none;
 
-          text-decoration: none;
-          line-height: unset;
-
           padding-left: .5rem;
           font-size: $font-small;
-          color: $color3;
 
           width: 21.735rem;
-
-          font-family: 'Exo', sans-serif;
-
 
           &:focus {
             outline: none;
@@ -394,20 +386,14 @@
           border-top: 1px solid $color2;
           border-bottom: 1px solid $color2;
           border-left: 1px solid $color2;
-          text-decoration: none;
-          line-height: unset;
 
           padding-left: .5rem;
           font-size: $font-xsmall-laptop;
-          color: $color3;
 
           width: calc(100% + -7rem);
           margin-left: 2rem;
 
-          font-family: 'Exo', sans-serif;
-
           display: block;
-
 
           &:focus {
             outline: none;
@@ -473,17 +459,11 @@
         width: 50%;
         height: 95%;
       }
-
     }
 
     &-pic:hover {
       cursor: pointer;
       transform: scale(1);
-
     }
   }
-}
-
-.hidden {
-  display: none;
 }

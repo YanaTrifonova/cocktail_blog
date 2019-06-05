@@ -565,13 +565,9 @@ i::before {
     border-bottom: 1px solid #c5c3c6;
     border-left: 1px solid #c5c3c6;
     border-right: none;
-    text-decoration: none;
-    line-height: unset;
     padding-left: .5rem;
     font-size: 1.7rem;
-    color: #46494c;
     width: 21.735rem;
-    font-family: 'Exo', sans-serif;
   }
   .nav__details__search-mobile:focus {
     outline: none;
@@ -584,14 +580,10 @@ i::before {
     border-top: 1px solid #c5c3c6;
     border-bottom: 1px solid #c5c3c6;
     border-left: 1px solid #c5c3c6;
-    text-decoration: none;
-    line-height: unset;
     padding-left: .5rem;
     font-size: 2rem;
-    color: #46494c;
     width: calc(100% + -7rem);
     margin-left: 2rem;
-    font-family: 'Exo', sans-serif;
     display: block;
   }
   .nav__details__search-mobile:focus {
@@ -680,10 +672,6 @@ i::before {
   cursor: pointer;
   -webkit-transform: scale(1);
           transform: scale(1);
-}
-
-.hidden {
-  display: none;
 }
 
 .tags {
