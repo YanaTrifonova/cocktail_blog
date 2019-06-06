@@ -18,6 +18,7 @@
         margin-top: 2rem;
         margin-bottom: 1rem;
         line-height: 4rem;
+        font-size: $font-large_mobile;
       }
     }
   }
@@ -35,7 +36,7 @@
       margin-bottom: 3rem;
 
       @media only screen and (max-width: 425px) {
-        margin-bottom: 2rem;
+        margin-bottom: 4rem;
       }
 
       &-decor { /*li*/
@@ -45,6 +46,12 @@
         border-radius: 6rem;
         margin: .3rem;
         @extend %button-background;
+
+        @media only screen and (max-width: 425px) {
+          padding: .8rem 1.5rem;
+          border-radius: 3rem;
+          font-size: $font-xsmall-laptop;
+        }
 
         &:hover {
           @extend %pop-up;
