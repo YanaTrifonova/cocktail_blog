@@ -142,13 +142,13 @@
       }
 
       &-hidden {
-        @media only screen and (max-width: 800px) { //
+        @media only screen and (max-width: 1250px) {
           display: none;
         }
       }
 
       &-menu {
-        @media only screen and (max-width: 800px) { //
+        @media only screen and (max-width: 800px) {
           grid-row: 2 / 3;
         }
       }

@@ -120,7 +120,7 @@ i::before {
   }
 }
 
-@media only screen and (max-widt500px) {
+@media only screen and (max-width: 500px) {
   .nav {
     display: grid;
     grid-template-rows: repeat(2, -webkit-max-content);
@@ -304,7 +304,7 @@ i::before {
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1250px) {
   .nav__details__btn-hidden {
     display: none;
   }
