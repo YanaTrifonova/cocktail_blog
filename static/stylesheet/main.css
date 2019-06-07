@@ -470,6 +470,7 @@ i::before {
   .nav__details__btn-ingr {
     grid-row: 1 / 2;
     grid-column: 1 / 2;
+    margin-top: .5rem;
   }
 }
 
@@ -1042,8 +1043,21 @@ i::before {
   height: auto;
 }
 
+@media only screen and (max-width: 800px) {
+  .cocktailList {
+    grid-template-columns: 1fr minmax(10rem, 70rem) 1fr;
+    grid-column-gap: 2rem;
+  }
+}
+
 .cocktailList__about-text {
   padding-bottom: 6rem;
+}
+
+@media only screen and (max-width: 800px) {
+  .cocktailList__about-text {
+    padding-bottom: 1rem;
+  }
 }
 
 .cocktailList__container {
@@ -1051,8 +1065,28 @@ i::before {
   padding-bottom: 2rem;
 }
 
+@media only screen and (max-width: 800px) {
+  .cocktailList__container {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+}
+
+@media only screen and (max-width: 625px) {
+  .cocktailList__container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
 .cocktailList__container:last-of-type {
   padding-bottom: 9rem;
+}
+
+@media only screen and (max-width: 800px) {
+  .cocktailList__container:last-of-type {
+    padding-bottom: 5rem;
+  }
 }
 
 .cocktailList__container__header {

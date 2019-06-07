@@ -1,12 +1,21 @@
 .cocktailList {
   @extend %grid-container;
 
+  @media only screen and (max-width: 800px) {
+    grid-template-columns: 1fr minmax(10rem, 70rem) 1fr;
+    grid-column-gap: 2rem;
+  }
+
   &__about {
     @extend %primary-text-position;
 
     &-text {
       @extend %primary-text-decoration;
       padding-bottom: 6rem;
+
+      @media only screen and (max-width: 800px) {
+        padding-bottom: 1rem;
+      }
     }
   }
 
@@ -14,8 +23,22 @@
     grid-column: 2 / 3;
     padding-bottom: 2rem;
 
+    @media only screen and (max-width: 800px) {
+      padding-left: 8rem;
+      padding-right: 8rem;
+    }
+
+    @media only screen and (max-width: 625px) {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+
     &:last-of-type {
       padding-bottom: 9rem;
+
+      @media only screen and (max-width: 800px) {
+        padding-bottom: 5rem;
+      }
     }
 
     &__header {
