@@ -1,12 +1,21 @@
 .alphabet {
   @extend %grid-container;
 
+  @media only screen and (max-width: 800px) {
+    grid-template-columns: 1fr minmax(10rem, 70rem) 1fr;
+    grid-column-gap: 2rem;
+  }
+
   &__about {
     @extend %primary-text-position;
 
     &-text {
       @extend %primary-text-decoration;
       margin-bottom: 5rem;
+
+      @media only screen and (max-width: 800px) {
+        margin-bottom: 3rem;
+      }
     }
   }
 
@@ -17,8 +26,16 @@
     border: .1rem solid $color2;
     padding: 3rem;
 
+    @media only screen and (max-width: 800px) {
+      padding: 2rem;
+    }
+
     &:last-of-type {
       margin-bottom: 5rem;
+
+      @media only screen and (max-width: 800px) {
+        margin-bottom: 3rem;
+      }
     }
 
     &-display {
@@ -29,6 +46,10 @@
       font-size: $font-xlarge;
       color: $color6;
       margin-bottom: 1rem;
+
+      @media only screen and (max-width: 425px) {
+        font-size: $font-large-mobile;
+      }
     }
 
     &__tag {
@@ -38,6 +59,7 @@
       display: inline-flex;
       padding: .5rem 1.5rem;
       border-radius: 4rem;
+      word-wrap: break-word;
       @extend %button-background;
 
       &:hover {
