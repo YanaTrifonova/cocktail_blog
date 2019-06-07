@@ -96,6 +96,10 @@
         @media only screen and (max-width: 425px) {
           margin-top: 2rem;
         }
+
+        @media only screen and (max-width: 290px) {
+          font-size: $font-xlarge-mobile;
+        }
       }
 
       &-link {
@@ -168,7 +172,7 @@
 
         @media only screen and (max-width: 425px) {
           margin: 2rem;
-          font-size: $font-xsmall_laptop-3;
+          font-size: $font-medium-mobile;
           padding: 1rem;
         }
 
@@ -226,7 +230,7 @@
         @media only screen and (max-width: 425px) {
           border: none;
           background-color: $color1;
-          font-size: $font-xsmall_laptop-3;
+          font-size: $font-medium_mobile;
           padding: 1rem;
         }
       }
@@ -369,7 +373,7 @@
 
         @media only screen and (max-width: 1250px) {
           display: none;
-          font-size: $font-small_laptop;
+          font-size: $font-large_laptop;
         }
       }
 
@@ -398,7 +402,7 @@
           border-left: 1px solid $color2;
 
           padding-left: .5rem;
-          font-size: $font-xsmall-laptop;
+          font-size: $font-small-mobile;
 
           width: calc(100% + -7rem);
           margin-left: 2rem;
@@ -462,6 +466,10 @@
     @media only screen and (max-width: 425px) {
       grid-row: 2 / 3;
       margin-top: .3rem;
+    }
+
+    @media only screen and (max-width: 290px) {
+      display: none;
     }
 
     &-pic {

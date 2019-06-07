@@ -6,10 +6,26 @@
   background-color: $color5;
   font-size: $font-medium;
 
+  @media only screen and (max-width: 800px) {
+    grid-template-columns: 1fr minmax(10rem, 70rem) 1fr;
+    grid-column-gap: 2rem;
+  }
+
+  @media only screen and (max-width: 625px) {
+    height: auto;
+    font-size: $font-medium_mobile;
+  }
+
   @media only screen and (max-width: 425px) {
     grid-template-columns: 1fr minmax(10rem, 70rem) 1fr;
     grid-column-gap: 2rem;
-    height: auto;
+    font-size: $font-large_mobile;
+  }
+
+  @media only screen and (max-width: 325px) {
+    grid-template-columns: .5fr minmax(5rem, 70rem) .5fr;
+    grid-column-gap: 2rem;
+    font-size: $font-medium_mobile;
   }
 
   &__btn {
@@ -18,7 +34,7 @@
     display: flex;
     margin: auto auto;
 
-    @media only screen and (max-width: 425px) {
+    @media only screen and (max-width: 625px) {
       flex-wrap: wrap;
       margin-top: 2rem;
       margin-bottom: 2rem;
@@ -29,11 +45,15 @@
       padding-right: 3rem;
       border-right: .2rem solid $color1;
 
-      @media only screen and (max-width: 425px) {
+      @media only screen and (max-width: 625px) {
         width: 100%;
         display: flex;
         margin: 2rem;
         border: none;
+      }
+
+      @media only screen and (max-width: 325px) {
+        margin: 2rem 1rem 2rem 1rem;
       }
 
       &:last-of-type {
@@ -44,7 +64,7 @@
     &-text {
       color: $color1;
 
-      @media only screen and (max-width: 425px) {
+      @media only screen and (max-width: 625px) {
         margin: 0 auto;
       }
 
