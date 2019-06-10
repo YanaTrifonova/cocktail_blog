@@ -36,7 +36,7 @@ $(document).ready(function () {
                                        onclick="articleDisplay('${id}')">${title}</h2>`);
                 idSelector.append(`<p class='article__container__creationTime'>${creationTime}</p>`);
                 idSelector.append(`<div class='article__container__body'>${body}</div>`);
-                idSelector.append(`<ul class='article__container__tags'>Tags:</ul>`);
+                idSelector.append(`<ul class='article__container__tags'><h6 class='article__container-style'>Tags:</h6></br></ul>`);
 
                 let tagsSelector = $('#' + id + `>.article__container__tags`);
                 ingredients.forEach(function (ingredient) {
