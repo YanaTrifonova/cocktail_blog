@@ -1,13 +1,24 @@
 .pageNotFound {
   @extend %grid-container;
 
+  @media only screen and (max-width: 800px) {
+    grid-template-columns: 1fr minmax(min-content, 70rem) 1fr;
+  }
+
   &__header {
     @extend %primary-text-position;
     grid-row: 1 / 2;
 
     &-text {
       @extend %primary-text-decoration;
+      margin-left: 2rem;
+      margin-right: 2rem;
 
+      @media only screen and (max-width: 225px) {
+        font-size: $font-medium-mobile;
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
     }
 
     &-link {
@@ -19,21 +30,36 @@
   &__image {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
-
     display: flex;
 
     &-decor {
-      height: 80%;
-      width: auto;
-      margin: auto;
+      //height: 80%;
+      //width: auto;
+     // height: 60%;
+      //width: 50%;
+      margin: 4rem auto;
+
+      @media only screen and (max-width: 800px) {
+        height: 60%;
+        width: 60%;
+
+      }
     }
   }
 
-  &-fix {
-    grid-template-rows: minmax(9rem, max-content) minmax(10rem, calc(100vh - 19rem - 28.5rem + 8.5rem));
-  }
-
-  &-fixFF {
-    grid-template-rows: minmax(9rem, max-content) minmax(10rem, calc(100vh - 19rem - 28.5rem + 7.75rem));
-  }
+  //&-fix {
+  //  grid-template-rows: minmax(9rem, max-content) minmax(10rem, calc(100vh - 19rem - 28.5rem + 10.5rem));
+  //
+  //  @media only screen and (max-width: 800px) {
+  //    grid-template-rows: minmax(9rem, max-content) minmax(10rem, calc(100vh - 46rem));
+  //  }
+  //}
+  //
+  //&-fixFF {
+  //  grid-template-rows: minmax(9rem, max-content) minmax(10rem, calc(100vh - 19rem - 28.5rem + 9rem));
+  //
+  //  @media only screen and (max-width: 800px) {
+  //    grid-template-rows: minmax(9rem, max-content) minmax(10rem, calc(100vh - 44.5rem));
+  //  }
+  //}
 }

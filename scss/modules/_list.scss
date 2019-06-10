@@ -2,8 +2,7 @@
   @extend %grid-container;
 
   @media only screen and (max-width: 800px) {
-    grid-template-columns: 1fr minmax(10rem, 70rem) 1fr;
-    grid-column-gap: 2rem;
+    grid-template-columns: 1fr minmax(min-content, 70rem) 1fr;
   }
 
   &__about {
@@ -15,6 +14,11 @@
 
       @media only screen and (max-width: 800px) {
         margin-bottom: 3rem;
+      }
+
+      @media only screen and (max-width: 320px) {
+        margin: 2rem;
+        font-size: $font-medium-mobile;
       }
     }
   }
@@ -28,6 +32,7 @@
 
     @media only screen and (max-width: 800px) {
       padding: 2rem;
+      margin: 1rem;
     }
 
     &:last-of-type {
@@ -50,6 +55,10 @@
       @media only screen and (max-width: 425px) {
         font-size: $font-large-mobile;
       }
+
+      @media only screen and (max-width: 320px) {
+        font-size: $font-medium-mobile;
+      }
     }
 
     &__tag {
@@ -64,6 +73,10 @@
 
       &:hover {
         @extend %pop-up;
+      }
+
+      @media only screen and (max-width: 320px) {
+        font-size: $font-small-mobile;
       }
     }
   }
