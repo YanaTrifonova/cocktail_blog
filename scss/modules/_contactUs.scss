@@ -1,14 +1,27 @@
 .contactUs {
   @extend %grid-container;
 
+  @media only screen and (max-width: 800px) {
+    grid-template-columns: 1fr minmax(min-content, 70rem) 1fr;
+  }
+
   &__header {
     @extend %primary-text-position;
     grid-row: 1 / 2;
 
     &-text {
       @extend %primary-text-decoration;
-      margin-top: 6rem;
+      margin-top: 2rem;
       margin-bottom: 1rem;
+
+      @media only screen and (max-width: 800px) {
+        margin-left: 2rem;
+        margin-right: 2rem;
+      }
+
+      @media only screen and (max-width: 290px) {
+        font-size: $font-medium-mobile;
+      }
     }
   }
 
@@ -30,9 +43,9 @@
   }
 
   &-fix {
-    grid-template-rows: minmax(12rem, max-content) minmax(15rem, calc(100vh - 19rem - 28.5rem + 7.5rem));
+    grid-template-rows: minmax(12rem, max-content) minmax(15rem, calc(100vh - 19rem - 28.5rem + 13rem));
   }
   &-fixFF {
-    grid-template-rows: minmax(12rem, max-content) minmax(15rem, calc(100vh - 19rem - 28.5rem + 6.8rem));
+    grid-template-rows: minmax(12rem, max-content) minmax(15rem, calc(100vh - 19rem - 28.5rem + 12rem));
   }
 }
