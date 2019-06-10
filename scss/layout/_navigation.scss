@@ -9,6 +9,10 @@
     grid-template-rows: repeat(2, max-content);
   }
 
+  &-fixAbout {
+    background-color: white;
+  }
+
   &__details {
     display: grid;
 
@@ -68,6 +72,12 @@
         margin-right: 2rem;
       }
 
+      &-fixAbout{
+        @media only screen and (max-width: 800px) {
+          padding-bottom: 2rem;
+        }
+      }
+
       &-fixForNonLogo {
         @media only screen and (max-width: 1250px) {
           grid-row: 2 / 3;
@@ -91,6 +101,7 @@
         @media only screen and (max-width: 1250px) {
           font-size: $font-xlarge_laptop;
           line-height: 7rem;
+          margin-bottom: .5rem;
         }
 
         @media only screen and (max-width: 500px) {
@@ -99,6 +110,11 @@
 
         @media only screen and (max-width: 290px) {
           font-size: $font-xlarge-mobile;
+          line-height: 5rem;
+        }
+
+        @media only screen and (max-width: 225px) {
+          font-size: $font-large-mobile;
         }
       }
 
@@ -269,6 +285,7 @@
           @media only screen and (max-width: 800px) {
             color: $color5;
             margin: auto;
+            font-size: 2.4rem;
           }
         }
       }
@@ -335,6 +352,7 @@
         position: absolute;
         right: 0;
         top: 2rem;
+        padding-right: 2rem;
       }
 
       @media only screen and (max-width: 500px) {
@@ -440,6 +458,7 @@
 
       &-pic {
         color: $color5;
+        font-size: 2.4rem;
 
         &:focus {
           outline: none;
@@ -466,6 +485,7 @@
     }
 
     @media only screen and (max-width: 500px) {
+      display: inherit;
       grid-row: 2 / 3;
       margin-top: .3rem;
     }
@@ -485,6 +505,10 @@
         z-index: -1;
         margin-top: -2rem;
       }
+    }
+
+    &-hidden {
+      display: none;
     }
 
     &-pic:hover {
