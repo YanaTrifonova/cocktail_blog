@@ -61,10 +61,6 @@
       flex-wrap: wrap;
       align-items: center;
 
-      &__elem:first-child {
-        margin-left: 2rem;
-      }
-
       &__elem {
         display: flex;
         font-size: $font-small;
@@ -81,6 +77,11 @@
           @extend %pop-up;
         }
       }
+    }
+
+    &-style {
+      margin-right: 1.5rem;
+      font-size: $font-medium-mobile;
     }
   }
 }
