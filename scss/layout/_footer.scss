@@ -7,7 +7,7 @@
   font-size: $font-medium;
 
   @media only screen and (max-width: 800px) {
-    grid-template-columns: 1fr minmax(10rem, 70rem) 1fr;
+    grid-template-columns: 1fr minmax(min-content, 70rem) 1fr;
     grid-column-gap: 2rem;
   }
 
@@ -17,15 +17,19 @@
   }
 
   @media only screen and (max-width: 425px) {
-    grid-template-columns: 1fr minmax(10rem, 70rem) 1fr;
+    grid-template-columns: 1fr minmax(min-content, 70rem) 1fr;
     grid-column-gap: 2rem;
     font-size: $font-large_mobile;
   }
 
   @media only screen and (max-width: 325px) {
-    grid-template-columns: .5fr minmax(5rem, 70rem) .5fr;
+    grid-template-columns: .5fr minmax(min-content, 70rem) .5fr;
     grid-column-gap: 2rem;
     font-size: $font-medium_mobile;
+  }
+
+  @media only screen and (max-width: 320px) {
+    grid-template-columns: .5fr minmax(min-content, 70rem) .5fr;
   }
 
   &__btn {
@@ -38,6 +42,15 @@
       flex-wrap: wrap;
       margin-top: 2rem;
       margin-bottom: 2rem;
+    }
+
+    @media only screen and (max-width: 320px) {
+      grid-column: 1 / 4;
+      background-color: #435674;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      margin-top: 0rem;
+      margin-bottom: 0rem;
     }
 
     &-decor {
@@ -54,6 +67,10 @@
 
       @media only screen and (max-width: 325px) {
         margin: 2rem 1rem 2rem 1rem;
+      }
+
+      @media only screen and (max-width: 320px) {
+        margin: 1rem;
       }
 
       &:last-of-type {
