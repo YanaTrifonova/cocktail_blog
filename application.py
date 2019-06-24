@@ -1,4 +1,5 @@
 import logging
+import os
 import sys
 
 from flask import Flask, jsonify, request, render_template, redirect
@@ -10,7 +11,7 @@ from orm.orm import get_articles, get_tags, write_article_with_tags, get_top_tag
 
 app_name = "r2r"
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 logger = logging.getLogger(app_name)
 logger.setLevel(logging.INFO)
@@ -20,56 +21,56 @@ stream_handler.setFormatter(formatter)
 logger.addHandler(stream_handler)
 
 
-@app.errorhandler(404)
+@application.errorhandler(404)
 def page_not_found(e):
     # note that we set the 404 status explicitly
     return render_template('404.html'), 404
 
-@app.route('/')
+@application.route('/')
 def static_page():
     return render_template('index.html')
 
 
-@app.route('/posts/<guid>')
+@application.route('/posts/<guid>')
 def static_single_post(guid):
     return render_template('index.html')
 
-@app.route('/post')
+@application.route('/post')
 @login_required
 def post_page():
     return render_template('post.html')
 
 
-@app.route('/ingredients')
+@application.route('/ingredients')
 def ingredients_page():
-    return render_template('Ingredients.html')
+    return render_template('ingredients.html')
 
 
-@app.route('/list')
+@application.route('/list')
 def list_page():
     return render_template('list.html')
 
 
-@app.route('/contactUs')
+@application.route('/contactUs')
 def contact_us_page():
     return render_template('contactUs.html')
 
 
-@app.route('/about')
+@application.route('/about')
 def about_page():
     return render_template('about.html')
 
-@app.route('/login')
+@application.route('/login')
 def login():
     return render_template('login.html')
 
-@app.route('/logout')
+@application.route('/logout')
 @login_required
 def logout():
     logout_user()
     return redirect("/")
 
-@app.route('/login', methods=['POST'])
+@application.route('/login', methods=['POST'])
 def login_post():
     name = request.form.get('name')
     password = request.form.get('password')
@@ -86,7 +87,7 @@ def login_post():
     login_user(user, remember=remember)
     return redirect("/post")
 
-@app.route('/articles', methods=['PUT'])
+@application.route('/articles', methods=['PUT'])
 @login_required
 def save_articles():
     body = request.get_json()
@@ -99,7 +100,7 @@ def save_articles():
     return jsonify({"status": "data are saved"}), 200
 
 
-@app.route("/tags", methods=["GET"])
+@application.route("/tags", methods=["GET"])
 def get_req_tags():
     try:
         is_ingr = request.args.get("ingredient")
@@ -121,7 +122,7 @@ def get_req_tags():
     return jsonify(output), 200
 
 
-@app.route("/tags/top", methods=["GET"])
+@application.route("/tags/top", methods=["GET"])
 def get_top_req_tags():
     try:
         top_number = request.args.get("top_number", 10)
@@ -141,7 +142,7 @@ def get_top_req_tags():
     return jsonify(output), 200
 
 
-@app.route('/articles/<guid>', methods=['GET'])
+@application.route('/articles/<guid>', methods=['GET'])
 def get_article(guid):
     try:
         data = get_article_db(guid)
@@ -155,7 +156,7 @@ def get_article(guid):
     return jsonify(output), 200
 
 
-@app.route('/articles', methods=['GET'])
+@application.route('/articles', methods=['GET'])
 def get_all_articles():
     try:
         size = request.args.get('size', 5)
@@ -178,7 +179,7 @@ def get_all_articles():
         return jsonify({"error": msg}), 500
     return jsonify(output), 200
 
-@app.route('/cocktails', methods=['GET'])
+@application.route('/cocktails', methods=['GET'])
 def get_all_cocktails():
     try:
         cocktails = get_cocktails()
@@ -220,14 +221,14 @@ if __name__ == '__main__':
     # application on Google App Engine. See entrypoint in app.yaml.
 
     #TODO: move it to cfg
-    app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopasdsadO'
+    application.config['SECRET_KEY'] = os.environ["SECRET_KEY"]
     login_manager = LoginManager()
     login_manager.login_view = 'login'
-    login_manager.init_app(app)
+    login_manager.init_app(application)
 
     @login_manager.user_loader
     def load_user(user_id):
         # since the user_id is just the primary key of our user table, use it in the query for the user
         return get_user_by_id(int(user_id))
 
-    app.run(host='127.0.0.1', port=8080, debug=True)
+    application.run(host='127.0.0.1', port=8080, debug=True)
