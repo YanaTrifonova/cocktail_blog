@@ -21,7 +21,7 @@ function saveForm() {
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(dataOut),
         success: function () {
-            alert('Load was performed.');
+            location.href = "/";
         },
         error: function () {
             alert('ERROR');

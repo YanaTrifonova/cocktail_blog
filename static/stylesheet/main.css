@@ -24,8 +24,8 @@ a {
 }
 
 i::before {
-  font: normal normal normal 14px/1 FontAwesome !important;
-  font-size: inherit !important;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
 }
 
 .tags, .article, .cocktailList, .alphabet, .contactUs, .pageNotFound {
@@ -134,6 +134,7 @@ i::before {
 
 .nav__details {
   display: grid;
+  grid-template-columns: 1fr 70rem 1fr;
 }
 
 @media only screen and (max-width: 1250px) {
@@ -345,6 +346,10 @@ i::before {
   position: relative;
 }
 
+.nav__details__btn-decor:hover {
+  text-decoration: none;
+}
+
 @media only screen and (max-width: 1250px) {
   .nav__details__btn-decor {
     font-size: 2rem;
@@ -411,7 +416,7 @@ i::before {
   font-size: 1.7rem;
   color: #435674;
   cursor: pointer;
-  padding: 2.7rem .5rem 3rem;
+  padding: 3rem .5rem 2.7rem;
   border-bottom: 0.3rem solid #435674;
   text-decoration: none;
 }
