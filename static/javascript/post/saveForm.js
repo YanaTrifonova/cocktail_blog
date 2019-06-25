@@ -12,8 +12,16 @@ function saveForm() {
     dataOut.tags.forEach(function (tag, ind, arr) {
         arr[ind] = tag.trim();
     });
+    dataOut.tags = dataOut.tags.filter(function (val, ind, arr) {
+        return val !== ""
+
+    });
     dataOut.ingredients.forEach(function (ingredient, ind, arr) {
         arr[ind] = ingredient.trim();
+    });
+    dataOut.ingredients = dataOut.ingredients.filter(function (val, ind, arr) {
+        return val !== ""
+        
     });
     $.ajax({
         url: '/articles',

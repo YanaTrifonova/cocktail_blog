@@ -47,7 +47,6 @@ $(document).ready(function () {
                     tagsSelector.append(`<li class='article__container__tags__elem' 
                                              onclick='pickDisplay("tag","${tag}")'>${tag}</li>`);
                 });
-
             });
             PaginationLoader();
 
@@ -75,6 +74,4 @@ $(document).ready(function () {
             alert('ERROR');
         },
     });
-
-
 });
