@@ -59,7 +59,7 @@
     <div class="post__header">
         <label for="header" class="post__label">Write a header of the post</label>
         <textarea name="header" id="header" class="post__header-input" required maxlength="255" placeholder="HEADER"
-                  cols="10" rows="2"></textarea>
+                  cols="10" rows="2" spellcheck="true" autocomplete="on"></textarea>
     </div>
 
     <p class="post__description">Header must be less than 255 characters in length</p>
@@ -79,7 +79,7 @@
         <div class="post__container post__container-hidden" id="isCocktailName">
             <label for="cocktailName" class="post__label">Write the name of the cocktail</label>
             <textarea name="ingr" id="cocktailName" class="post__container-input"
-                      placeholder="Name of the cocktail"></textarea>
+                      placeholder="Name of the cocktail" spellcheck="true" autocomplete="on"></textarea>
         </div>
     </div>
 
@@ -87,7 +87,8 @@
 
     <div class="post__container">
         <label for="tags" class="post__label">Write ingredients for a cocktail</label>
-        <textarea name="ingr" id="ingr" class="post__container-input" placeholder="Ingredients"></textarea>
+        <textarea name="ingr" id="ingr" class="post__container-input" placeholder="Ingredients" spellcheck="true"
+                  autocomplete="on"></textarea>
     </div>
 
     <p class="post__description">First ingredient is considered as a main one. It's possible to write more than one
@@ -98,7 +99,8 @@
 
     <div class="post__container">
         <label for="tags" class="post__label">Write tags for the post</label>
-        <textarea name="tags" id="tags" class="post__container-input" placeholder="Tags"></textarea>
+        <textarea name="tags" id="tags" class="post__container-input" placeholder="Tags" spellcheck="true"
+                  autocomplete="on"></textarea>
     </div>
 
     <p class="post__description">It's possible to write more than one tag. It should be separated by comma from each
