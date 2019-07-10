@@ -12,7 +12,6 @@ function menu() {
         h.classList.add("nav__details__header-mobile");
         burger.classList.remove("fas", "fa-bars", "nav__details__btn-mobile-pic");
         crossMenu.classList.add("fas", "fa-times", "nav__details__btn-mobile-pic");
-        b.classList.remove("nav__details__btn-mobile-hidden");
 
     } else {
         m.classList.remove("nav__details__btn-menu");
@@ -20,6 +19,5 @@ function menu() {
         h.classList.remove("nav__details__header-mobile");
         burger.classList.add("fas", "fa-bars", "nav__details__btn-mobile-pic");
         crossMenu.classList.remove("fas", "fa-times", "nav__details__btn-mobile-pic");
-        b.classList.add("nav__details__btn-mobile-hidden");
     }
 }
