@@ -1,7 +1,6 @@
 function menu() {
     let m = document.querySelector("#menuBtn");
     let h = document.querySelector("#header");
-    let b = document.querySelector("menuBar");
 
     let burger = document.querySelector("#burger");
     let crossMenu = document.querySelector("#crossMenu");
