@@ -9,6 +9,8 @@ function css() {
         .pipe(autoprefixer({
             browsers: ['last 2 versions']
         }))
+      //  .pipe(gulp.dest('static/stylesheet'))
+        .pipe(sass.sync({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(gulp.dest('static/stylesheet'))
 }
 
