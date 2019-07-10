@@ -21,5 +21,5 @@ function menu() {
         burger.classList.add("fas", "fa-bars", "nav__details__btn-mobile-pic");
         crossMenu.classList.remove("fas", "fa-times", "nav__details__btn-mobile-pic");
         b.classList.add("nav__details__btn-mobile-hidden");
-    } nav__details__btn-mobile-pi
+    }
 }
