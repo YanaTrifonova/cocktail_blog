@@ -13,6 +13,19 @@ app_name = "r2r"
 
 application = Flask(__name__)
 
+application.secret_key = os.environ["SECRET_KEY"]
+login_manager = LoginManager()
+login_manager.login_view = 'login'
+login_manager.init_app(application)
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    # since the user_id is just the primary key of our user table, use it in the query for the user
+    return get_user_by_id(int(user_id))
+
+
+
 logger = logging.getLogger(app_name)
 logger.setLevel(logging.INFO)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -217,18 +230,5 @@ def create_output(data, has_prev, has_next):
 
 
 if __name__ == '__main__':
-    # This is used when running locally. Gunicorn is used to run the
-    # application on Google App Engine. See entrypoint in app.yaml.
 
-    #TODO: move it to cfg
-    application.config['SECRET_KEY'] = os.environ["SECRET_KEY"]
-    login_manager = LoginManager()
-    login_manager.login_view = 'login'
-    login_manager.init_app(application)
-
-    @login_manager.user_loader
-    def load_user(user_id):
-        # since the user_id is just the primary key of our user table, use it in the query for the user
-        return get_user_by_id(int(user_id))
-
-    application.run(host='127.0.0.1', port=8080, debug=True)
+    application.run(port=8080)
