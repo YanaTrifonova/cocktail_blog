@@ -47,7 +47,6 @@ $(document).ready(function () {
                     tagsSelector.append(`<li class='article__container__tags__elem' 
                                              onclick='pickDisplay("tag","${tag}")'>${tag}</li>`);
                 });
-
             });
             PaginationLoader();
 
@@ -64,17 +63,15 @@ $(document).ready(function () {
         },
         statusCode: {
             500: function () {
-                alert('ERROR'); // build new
+                $(".article").append(`<div class="article__error"><h1 class="article__error-text">Oops! Something on the server went wrong...</h1></div>`);
             },
 
             404: function () {
-                alert('return 404'); // build new
+                return '/';
             }
         },
         error: function () {
             alert('ERROR');
         },
     });
-
-
 });

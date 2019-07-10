@@ -15,6 +15,7 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
 
+    <script src="../static/javascript/post/summernoteToolBar.js"></script>
     <script src="../static/javascript/post/summernoteEditField.js"></script>
     <script src="../static/javascript/post/checkboxExpansion.js"></script>
     <script src="../static/javascript/post/saveForm.js"></script>
@@ -26,18 +27,27 @@
 
     <div class="nav__details">
 
-        <div class="nav__details__btn">
+        <div class="nav__details__header">
+            <a class="nav__details__header-link" href="/"><h1 class="nav__details__header-text">Cocktail Blog</h1></a>
+        </div>
+
+        <button class="nav__details__btn-mobile" id="menuBar" onclick="menu()">
+            <i id="burger" class="fas fa-bars nav__details__btn-mobile-pic"></i>
+            <i id="crossMenu"></i>
+        </button>
+
+        <div class="nav__details__btn nav__details__btn-hidden" id="menuBtn">
+
             <a class="nav__details__btn-ingr nav__details__btn-decor" href="ingredients">Ingredients</a>
             <a class="nav__details__btn-list nav__details__btn-decor" href="list">List</a>
             <a class="nav__details__btn-about nav__details__btn-decor" href="about">About</a>
             <a class="nav__details__btn-cont nav__details__btn-decor" href="contactUs">Contact Us</a>
         </div>
-
     </div>
 
     <div class="nav__logo">
-        <a href="/" class="nav__logo-pic"><img src="/static/img/shark_logo.png"
-                                               alt="logo picture with cock who drinks cocktail"></a>
+        <a class="nav__logo-pic" href="/"><img alt="logo picture with cock who drinks cocktail"
+                                               src="/static/img/shark_logo.png"></a>
     </div>
 </nav>
 
@@ -72,7 +82,6 @@
                       placeholder="Name of the cocktail"></textarea>
         </div>
     </div>
-
 
     <!--INGREDIENTS-->
 

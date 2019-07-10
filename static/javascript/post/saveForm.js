@@ -12,8 +12,16 @@ function saveForm() {
     dataOut.tags.forEach(function (tag, ind, arr) {
         arr[ind] = tag.trim();
     });
+    dataOut.tags = dataOut.tags.filter(function (val, ind, arr) {
+        return val !== ""
+
+    });
     dataOut.ingredients.forEach(function (ingredient, ind, arr) {
         arr[ind] = ingredient.trim();
+    });
+    dataOut.ingredients = dataOut.ingredients.filter(function (val, ind, arr) {
+        return val !== ""
+        
     });
     $.ajax({
         url: '/articles',
@@ -21,7 +29,7 @@ function saveForm() {
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(dataOut),
         success: function () {
-            alert('Load was performed.');
+            location.href = "/";
         },
         error: function () {
             alert('ERROR');

@@ -84,4 +84,17 @@
       font-size: $font-medium-mobile;
     }
   }
+
+  &__error {
+    grid-column: 2 / 3;
+    background-color: $color2;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+
+    &-text {
+      padding: 4rem;
+      font-size: $font-xlarge;
+      color: #f13342;
+    }
+  }
 }
