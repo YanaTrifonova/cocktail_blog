@@ -137,7 +137,8 @@ def write_article_with_tags(data):
 
         all_tags = generate_tag_data(data, new_id, "tags")
         all_ingr = generate_tag_data(data, new_id, "ingredients")
-        all_ingr[0][3] = True
+        if len(all_ingr):
+            all_ingr[0][3] = True
         all_tags.extend(all_ingr)
         all_tags = ["('{}', '{}', {}, {})".format(tg[0], tg[1], tg[2], tg[3]) for tg in all_tags]
         cursor.execute("""
